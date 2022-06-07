@@ -15,28 +15,15 @@
 </head>
 <body>
 	<h1>Lista de Área</h1>
-	<h3><a href="/insertArea" class="waves-effect waves-light btn"><i class="material-icons left">add_box</i>Cadastrar Área</a></h3>
-	<table>
+	<table class="container">
 		<thead>
 			<tr>
 				<th>Área</th>
-				<th>Status</th>
-				<th>Ação</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="Area : ${Areas}">
-				<td><span th:text=${Area.area}></span></td>
-				<td>			
-				<span th:switch="${Area.status}">
-			  		<p th:case="true">ATIVO</p>
-			  		<p th:case="false">DESATIVADO</p>
-				</span>
-				</td>
-				<td>
-					<a href="/insertArea" class="waves-effect waves-light btn"><i class="material-icons left">mode_edit</i>Editar Área</a>
-					<a href="/insertArea" class="waves-effect waves-light btn"><i class="material-icons left">delete</i>Desabilitar Área</a>
-				</td>
+			<tr>
+				<td><span th:text=${Area}></span></td>
 			</tr>
 		</tbody>
 	</table>

@@ -38,9 +38,9 @@ public class AreaController {
 		return mvArea;
 	}
 	
-	@RequestMapping("/{codigo}")
-	public ModelAndView detalheArea(@PathVariable("id") String codigo) {
-		Optional<Area> area = ar.findById(codigo);	
+	@RequestMapping("/{myarea}")
+	public ModelAndView detalheArea(@PathVariable("myarea") String myarea) {
+		Area area = ar.findByArea(myarea);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
 		mvArea.addObject("Area", area);
 		return mvArea;

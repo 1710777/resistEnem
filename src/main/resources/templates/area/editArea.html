@@ -14,29 +14,17 @@
 
 </head>
 <body>
-	<h1>Lista de Área</h1>
-	<h3><a href="/insertArea" class="waves-effect waves-light btn"><i class="material-icons left">add_box</i>Cadastrar Área</a></h3>
+	<h1>Área</h1>
+	<h3><a href="/areas" class="waves-effect waves-light btn"><i class="material-icons left">add_box</i>Lista das Áreas</a></h3>
 	<table class="container">
 		<thead>
 			<tr>
 				<th>Área</th>
-				<th>Status</th>
-				<th>Ação</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="Area : ${Areas}">
+			<tr th:each="Area : ${Area}">
 				<td><span th:text=${Area.area}></span></td>
-				<td>			
-				<span th:switch="${Area.status}">
-			  		<p th:case="true">ATIVO</p>
-			  		<p th:case="false">DESATIVADO</p>
-				</span>
-				</td>
-				<td>		    
-				  	<a th:href="${#mvc.url('AC#detalheArea').arg(0, Area.area).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">add</i></a>
-				  	<a href="/excluirEvento?codigo=${Area.area}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-				</td>
 			</tr>
 		</tbody>
 	</table>

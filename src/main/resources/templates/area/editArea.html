@@ -3,31 +3,44 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
-<title>RESISTENEM - Área</title>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+	<title>RESISTENEM - Área</title>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-	<h1>Área</h1>
-	<h3><a href="/areas" class="waves-effect waves-light btn"><i class="material-icons left">add_box</i>Lista das Áreas</a></h3>
-	<table class="container">
-		<thead>
-			<tr>
-				<th>Área</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="Area : ${Area}">
-				<td><span th:text=${Area.area}></span></td>
-			</tr>
-		</tbody>
-	</table>
+	<h1>Editar de Área</h1>
+	<h3><a href="/areas" class="waves-effect waves-light btn"><i class="material-icons left">dashboard</i>Áreas</a></h3>
+	<div class="row">
+	
+	<form method="post" action="updateArea" class="container" th:each="Area : ${Area}">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Área" name="area" type="text" th:value=${Area.area}>
+          <label for="area">Área</label>
+        </div>
+        <div class="input-field col s6">
+	  	    <p>
+		  		<label>  		
+				      <input class="with-gap" name="status" type="radio" value="1" th:checked="${Area.status} == true"/>
+				      <span>Ativado</span>
+				</label>
+				<label>
+				      <input class="with-gap" name="status" type="radio" value="0" th:checked="${Area.status} == false"/>
+				      <span>Desativado</span>
+				</label>
+			</p>
+        </div>
+      </div>
+	  <button class="btn waves-effect waves-light" type="submit" name="action">Editar Área
+	    <i class="material-icons right">edit</i>
+	  </button>
+	</form>
+	</div>
  <!--JavaScript at end of body for optimized loading-->
  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

@@ -30,6 +30,12 @@ public class AreaController {
 		return "redirect:/insertArea";
 	}
 	
+	@RequestMapping(value="updateArea", method=RequestMethod.POST)
+	public String updateArea(Area area) {
+		ar.save(area);
+		return "redirect:/Areas";
+	}
+	
 	@RequestMapping("/areas")
 	public ModelAndView listaArea() {
 		ModelAndView mvArea = new ModelAndView("area/area");
@@ -38,11 +44,19 @@ public class AreaController {
 		return mvArea;
 	}
 	
-	@RequestMapping("/{myarea}")
-	public ModelAndView detalheArea(@PathVariable("myarea") String myarea) {
-		Area area = ar.findByArea(myarea);
+	@RequestMapping("/{id}")
+	public ModelAndView detalheArea(@PathVariable("id") String id) {
+		Optional<Area> area = ar.findById(id);
+		Area area1 = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
-		mvArea.addObject("Area", area);
+		mvArea.addObject("Area", area1);
 		return mvArea;
+	}
+	
+	@RequestMapping("excluir/{id}")
+	public String excluirArea(@PathVariable("id") String id) {
+		Optional<Area> area = ar.findById(id);
+		ar.deleteById(id);
+		return "redirect:/Areas";
 	}
 }

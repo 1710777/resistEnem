@@ -27,15 +27,16 @@
 		<tbody>
 			<tr th:each="Area : ${Areas}">
 				<td><span th:text=${Area.area}></span></td>
-				<td>			
+				<td>
+						
 				<span th:switch="${Area.status}">
 			  		<p th:case="true">ATIVO</p>
 			  		<p th:case="false">DESATIVADO</p>
 				</span>
 				</td>
-				<td>		    
-				  	<a th:href="${#mvc.url('AC#detalheArea').arg(0, Area.area).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">add</i></a>
-				  	<a href="/excluirEvento?codigo=${Area.area}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+				<td>
+				  	<a th:href="${#mvc.url('AC#detalheArea').arg(0, Area.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				  	<a th:href="${#mvc.url('AC#excluirArea').arg(0, Area.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
 				</td>
 			</tr>
 		</tbody>

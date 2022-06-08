@@ -1,10 +1,16 @@
 package com.br.resistenem.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Unwrapped.Empty;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.NonNullFields;
 
 public class Area {
+	@Id
 	public String id;
+	@NonNull
 	public String area;
+	@NonNull
 	public Boolean status;
 	
 	public Area() {

@@ -24,7 +24,7 @@ public class AreaController {
 	
 	@RequestMapping(value="insertArea", method=RequestMethod.GET)
 	public String insertArea() {
-		return "area/frmArea";
+		return "area/insertArea";
 	}
 	
 	@RequestMapping(value="insertArea", method=RequestMethod.POST)

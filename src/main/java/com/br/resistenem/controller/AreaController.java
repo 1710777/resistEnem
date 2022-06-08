@@ -5,10 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.resistenem.model.Area;
 import com.br.resistenem.repository.AreaRepository;
@@ -25,15 +28,25 @@ public class AreaController {
 	}
 	
 	@RequestMapping(value="insertArea", method=RequestMethod.POST)
-	public String insertArea(Area area) {
+	public String insertArea(Area area, RedirectAttributes attibutes) {
+		if ("".equals(area.getArea())) {
+			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			return "redirect:/insertArea";
+		}
 		ar.save(area);
+		attibutes.addFlashAttribute("menssagem", "Area incluida com sucesso!");
 		return "redirect:/insertArea";
 	}
 	
 	@RequestMapping(value="updateArea", method=RequestMethod.POST)
-	public String updateArea(Area area) {
+	public String updateArea(Area area, RedirectAttributes attibutes) {
+		if ("".equals(area.getArea())) {
+			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			return "redirect:/updateArea";
+		}
 		ar.save(area);
-		return "redirect:/Areas";
+		attibutes.addFlashAttribute("menssagem", "Area atualizada com sucesso!");
+		return "redirect:/"+area.getId();
 	}
 	
 	@RequestMapping("/areas")
@@ -53,10 +66,19 @@ public class AreaController {
 		return mvArea;
 	}
 	
-	@RequestMapping("excluir/{id}")
+	@RequestMapping("excluirArea/{id}")
 	public String excluirArea(@PathVariable("id") String id) {
-		Optional<Area> area = ar.findById(id);
-		ar.deleteById(id);
-		return "redirect:/Areas";
+		Area areaNew = ar.findAllById(id);
+		areaNew.setStatus(false);
+		ar.save(areaNew);
+		return "redirect:/areas";
+	}
+	
+	@RequestMapping("publicarArea/{id}")
+	public String publicarArea(@PathVariable("id") String id) {
+		Area areaNew = ar.findAllById(id);
+		areaNew.setStatus(true);
+		ar.save(areaNew);
+		return "redirect:/areas";
 	}
 }

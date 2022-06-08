@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html xmls:th="http://thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-<meta charset="UTF-8">
-	<title>RESISTENEM - Área</title>
-	<!--Import Google Icon Font-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-	<!--Import materialize.css-->
-	<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-	
-	<!--Let browser know website is optimized for mobile-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
-<body>
+	<th:block th:include="header"></th:block>
 	<h1>Cadastro de Área</h1>
 	<h3><a href="/areas" class="waves-effect waves-light btn"><i class="material-icons left">dashboard</i>Áreas</a></h3>
 	<div class="row">
-	
+	<th:block th:include="mensagemValidacao"></th:block>
 	<form method="post" class="container">
       <div class="row">
         <div class="input-field col s6">
@@ -41,7 +27,4 @@
 	  </button>
 	</form>
 	</div>
- <!--JavaScript at end of body for optimized loading-->
- <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-</body>
-</html>
+	<th:block th:include="footer"></th:block>

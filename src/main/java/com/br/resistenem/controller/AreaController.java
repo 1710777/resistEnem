@@ -1,12 +1,7 @@
 package com.br.resistenem.controller;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,34 +17,34 @@ public class AreaController {
 	@Autowired
 	private AreaRepository ar;
 	
-	@RequestMapping(value="insertArea", method=RequestMethod.GET)
+	@RequestMapping(value="/area/insertArea", method=RequestMethod.GET)
 	public String insertArea() {
-		return "area/insertArea";
+		return "/area/insertArea";
 	}
 	
-	@RequestMapping(value="insertArea", method=RequestMethod.POST)
+	@RequestMapping(value="/area/insertAreaq", method=RequestMethod.POST)
 	public String insertArea(Area area, RedirectAttributes attibutes) {
 		if ("".equals(area.getArea())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
-			return "redirect:/insertArea";
+			return "redirect:/area/insertArea";
 		}
 		ar.save(area);
 		attibutes.addFlashAttribute("menssagem", "Area incluida com sucesso!");
-		return "redirect:/insertArea";
+		return "redirect:/area/insertArea";
 	}
 	
-	@RequestMapping(value="updateArea", method=RequestMethod.POST)
+	@RequestMapping(value="/area/updateArea", method=RequestMethod.POST)
 	public String updateArea(Area area, RedirectAttributes attibutes) {
 		if ("".equals(area.getArea())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
-			return "redirect:/updateArea";
+			return "redirect:/area/editarArea/"+area.getId();
 		}
 		ar.save(area);
 		attibutes.addFlashAttribute("menssagem", "Area atualizada com sucesso!");
-		return "redirect:/"+area.getId();
+		return "redirect:/area/editarArea/"+area.getId();
 	}
 	
-	@RequestMapping("/areas")
+	@RequestMapping("/area/areas")
 	public ModelAndView listaArea() {
 		ModelAndView mvArea = new ModelAndView("area/area");
 		Iterable<Area> areas = ar.findAll();
@@ -57,28 +52,27 @@ public class AreaController {
 		return mvArea;
 	}
 	
-	@RequestMapping("/{id}")
-	public ModelAndView detalheArea(@PathVariable("id") String id) {
-		Optional<Area> area = ar.findById(id);
-		Area area1 = ar.findAllById(id);
+	@RequestMapping(value="/area/editarArea/{id}", method=RequestMethod.GET)
+	public ModelAndView editarArea(@PathVariable("id") String id) {
+		Area area = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
-		mvArea.addObject("Area", area1);
+		mvArea.addObject("Area", area);
 		return mvArea;
 	}
 	
-	@RequestMapping("excluirArea/{id}")
+	@RequestMapping("/area/excluirArea/{id}")
 	public String excluirArea(@PathVariable("id") String id) {
 		Area areaNew = ar.findAllById(id);
 		areaNew.setStatus(false);
 		ar.save(areaNew);
-		return "redirect:/areas";
+		return "redirect:/area/areas";
 	}
 	
-	@RequestMapping("publicarArea/{id}")
+	@RequestMapping("/area/publicarArea/{id}")
 	public String publicarArea(@PathVariable("id") String id) {
 		Area areaNew = ar.findAllById(id);
 		areaNew.setStatus(true);
 		ar.save(areaNew);
-		return "redirect:/areas";
+		return "redirect:/area/areas";
 	}
 }

@@ -2,10 +2,10 @@
 	<div class="collection">
 	  <a class="collection-item active blue">Editar de Área</a>
 	</div>
-	<h3><a href="/areas" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Áreas</a></h3>
+	<h3><a href="/area/areas" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Áreas</a></h3>
 	<div class="row">
 	<th:block th:include="mensagemValidacao"></th:block>
-	<form method="post" action="updateArea" class="container" th:each="Area : ${Area}">
+	<form method="post" action="/area/updateArea" class="container" th:each="Area : ${Area}">
 	 <input placeholder="ID" name="id" type="hidden" th:value=${Area.id}>
 	      <div class="row">
         <div class="input-field col s6">
@@ -15,7 +15,7 @@
         <div class="input-field col s6">
 	  	    <p>
 		  		<label>  		
-				      <input class="with-gap" name="status" type="radio" value="1" th:checked="${Area.status} == true"/>
+				      <input class="with-gap blue" name="status" type="radio" value="1" th:checked="${Area.status} == true"/>
 				      <span>Ativado</span>
 				</label>
 				<label>

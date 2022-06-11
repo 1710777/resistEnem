@@ -1,15 +1,15 @@
 	<th:block th:include="header"></th:block>
 	<div class="collection">
-	  <a class="collection-item active blue">Cadastro de Área</a>
+	  <a class="collection-item active blue">Cadastro de Dificuldade</a>
 	</div>
-	<h3><a href="/area/areas" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Áreas</a></h3>
+	<h3><a href="/dificuldade/dificuldades" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Dificuldades</a></h3>
 	<div class="row">
 	<th:block th:include="mensagemValidacao"></th:block>
 	<form method="post" class="container">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Área" name="area" type="text" >
-          <label for="area">Área</label>
+          <input placeholder="Dificuldade" name="dificuldade" type="text" >
+          <label for="area">Dificuldade</label>
         </div>
         <div class="input-field col s6">
 	  	    <p>
@@ -24,7 +24,7 @@
 			</p>
         </div>
       </div>
-	  <button class="btn waves-effect waves-light blue" type="submit" name="action">Cadastrar Área
+	  <button class="btn waves-effect waves-light blue" type="submit" name="action">Cadastrar Dificuldade
 	    <i class="material-icons right">send</i>
 	  </button>
 	</form>

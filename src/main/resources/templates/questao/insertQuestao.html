@@ -1,0 +1,51 @@
+	<th:block th:include="header"></th:block>
+	<div class="collection">
+	  <a class="collection-item active blue">Cadastro de Questão</a>
+	</div>
+	<h3><a href="/questao/questoes" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Questões</a></h3>
+	<div class="row">
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form method="post" class="container">
+      <div class="row">
+		<div class="input-field col s6">
+			<label>Áreas</label><br><br>
+   			<select name="idArea" class="browser-default">
+			    <option th:each="area : ${Questao.areas}" th:value="${area.id}" th:text="${area.area}"></option>
+			</select>		
+		</div>
+		<div class="input-field col s6">
+			<label>Dificuldade</label><br><br>
+   			<select name="idDificuldade" class="browser-default">
+			    <option th:each="dificuldade : ${Questao.listaDificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}"></option>
+			</select>
+		</div>
+        <div class="input-field col s12">
+          <input placeholder="Pergunta" name="pergunta" type="text" >
+          <label for="pergunta">Pergunta</label>
+        </div>
+        <div class="input-field col s12">
+          <input placeholder="Explicação" name="explicacao" type="text" >
+          <label for="explicacao">Explicação</label>
+        </div>
+        <div class="input-field col s6">
+	  	    <p>
+			    <label>
+			      <input class="with-gap" name="status" type="radio" value="1" checked />
+			      <span>Ativado</span>
+			    </label>
+			    <label>
+			      <input class="with-gap" name="status" type="radio" value="0" />
+			      <span>Desativado</span>
+			    </label>
+			</p>
+        </div>
+      </div>
+	  <button class="btn waves-effect waves-light blue" type="submit" name="action">Cadastrar Questões
+	    <i class="material-icons right">send</i>
+	  </button>
+	</form>
+	</div>
+	<script>
+
+	</script>
+	<th:block th:include="footer"></th:block>

@@ -1,0 +1,47 @@
+	<th:block th:include="header"></th:block>
+	<div class="collection">
+	  <a class="collection-item active blue">Editar de Questão</a>
+	</div>
+	<h3><a href="/questao/questoes" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Questões</a></h3>
+	<div class="row">
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form method="post" action="/questao/updateQuestao" class="container" th:each="questao : ${Questao}">
+	 <input placeholder="ID" name="id" type="hidden" th:value=${questao.id}>       
+		<div class="input-field col s6">
+			<label>Áreas</label><br><br>
+   			<select name="idArea" class="browser-default">
+			    <option th:each="area : ${Questao.areas}" th:value="${area.id}" th:text="${area.area}" th:selected="${area.id==Questao.idArea}"></option>
+			</select>		
+		</div>
+		<div class="input-field col s6">
+			<label>Dificuldade</label><br><br>
+   			<select name="idDificuldade" class="browser-default">
+			    <option th:each="dificuldade : ${Questao.listaDificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}" th:selected="${dificuldade.id==Questao.idDificuldade}"></option>
+			</select>
+		</div>
+        <div class="input-field col s12">
+          <textarea id="pergunta" placeholder="Pergunta" name="pergunta" class="materialize-textarea" th:text="${questao.pergunta}"></textarea>
+          <label for="pergunta">Pergunta</label>
+        </div>
+        <div class="input-field col s12">
+          <textarea id="Explicação" placeholder="Explicação" name="explicacao" class="materialize-textarea" th:text="${questao.explicacao}"></textarea>
+          <label for="explicacao">Explicação</label>
+        </div>
+        <div class="input-field col s12">
+	  	    <p>
+		  		<label>  		
+				      <input class="with-gap" name="status" type="radio" value="1" th:checked="${Questao.status} == true"/>
+				      <span>Ativado</span>
+				</label>
+				<label>
+				      <input class="with-gap blue" name="status" type="radio" value="0" th:checked="${Questao.status} == false"/>
+				      <span>Desativado</span>
+				</label>
+			</p>
+        </div>
+		 <button class="btn waves-effect waves-light blue" type="submit" name="action">Editar Área
+		   <i class="material-icons right">edit</i>
+		 </button>  
+	</form>
+    </div>
+	<th:block th:include="footer"></th:block>

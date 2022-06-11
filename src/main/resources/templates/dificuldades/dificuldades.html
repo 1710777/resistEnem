@@ -1,0 +1,36 @@
+	<th:block th:include="header"></th:block>
+  
+	<div class="collection">
+	  <a class="collection-item active blue">Lista de Dificuldade</a>
+	</div>
+	<a href="/dificuldade/insertDificuldade" class="waves-effect waves-darkness  btn blue"><i class="material-icons left">add_box</i>Cadastrar Dificuldades</a>
+
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Dificuldades</th>
+				<th>Status</th>
+				<th>Ação</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="Dificuldades: ${Dificuldades}">
+				<td><span th:text=${Dificuldades.dificuldade}></span></td>
+				<td>
+						
+				<span th:switch="${Dificuldades.status}">
+			  		<p th:case="true">ATIVO</p>
+			  		<p th:case="false">DESATIVADO</p>
+				</span>
+				</td>
+				<td>
+				  	<a th:href="${#mvc.url('DC#editarDificuldades').arg(0, Dificuldades.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				  	<a th:href="${#mvc.url('DC#excluirDificuldades').arg(0, Dificuldades.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+				  	<a th:href="${#mvc.url('DC#publicarDificuldades').arg(0, Dificuldades.id).build()}" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">publish</i></a>
+				  	
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<th:block th:include="footer"></th:block>
+	

@@ -1,0 +1,41 @@
+	<th:block th:include="header"></th:block>
+  
+	<div class="collection">
+	  <a class="collection-item active blue">Lista de Questões</a>
+	</div>
+    <a href="/questao/insertQuestao" class="waves-effect waves-darkness  btn blue"><i class="material-icons left">add_box</i>Cadastrar Questão</a>
+
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Area</th>
+				<th>Pergunta</th>
+				<th>Dificuldade</th>
+				<th>Status</th>
+				<th>Ação</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="Questao : ${Questoes}">
+				<td><span th:text=${Questao.area.area}></span></td>
+				<td><span th:text=${Questao.pergunta}></span></td>
+				<td><span th:text=${Questao.dificuldade.dificuldade}></span></td>
+
+				<td>
+						
+				<span th:switch="${Questao.status}">
+			  		<p th:case="true">ATIVO</p>
+			  		<p th:case="false">DESATIVADO</p>
+				</span>
+				</td>
+				<td>
+				  	<a th:href="${#mvc.url('QC#editarQuestao').arg(0, Questao.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				  	<a th:href="${#mvc.url('QC#excluirQuestao').arg(0, Questao.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+				  	<a th:href="${#mvc.url('QC#publicarQuestao').arg(0, Questao.id).build()}" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">publish</i></a>
+				  	
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<th:block th:include="footer"></th:block>
+	

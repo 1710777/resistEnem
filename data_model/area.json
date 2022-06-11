@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "629ff2ae886e923711b193f3"
+  },
+  "area": "Matemática e suas Tecnologias",
+  "status": true,
+  "_class": "com.br.resistenem.model.Area"
+},{
+  "_id": {
+    "$oid": "629ff6c9886e923711b193f5"
+  },
+  "area": "Ciências da Natureza e suas Tecnologias",
+  "status": true,
+  "_class": "com.br.resistenem.model.Area"
+},{
+  "_id": {
+    "$oid": "629ff8bb886e923711b193f6"
+  },
+  "area": "Linguagens, Códigos e suas Tecnologias",
+  "status": true,
+  "_class": "com.br.resistenem.model.Area"
+}]

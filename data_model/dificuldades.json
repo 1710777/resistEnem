@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "62a32e2484a9536ace6c0b93"
+  },
+  "dificuldade": "Fácil",
+  "status": true,
+  "_class": "com.br.resistenem.model.Dificuldades"
+},{
+  "_id": {
+    "$oid": "62a32e2984a9536ace6c0b94"
+  },
+  "dificuldade": "Media",
+  "status": true,
+  "_class": "com.br.resistenem.model.Dificuldades"
+},{
+  "_id": {
+    "$oid": "62a32e2c84a9536ace6c0b95"
+  },
+  "dificuldade": "Difícil",
+  "status": true,
+  "_class": "com.br.resistenem.model.Dificuldades"
+}]

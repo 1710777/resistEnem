@@ -22,7 +22,7 @@ public class AreaController {
 		return "/area/insertArea";
 	}
 	
-	@RequestMapping(value="/area/insertAreaq", method=RequestMethod.POST)
+	@RequestMapping(value="/area/insertArea", method=RequestMethod.POST)
 	public String insertArea(Area area, RedirectAttributes attibutes) {
 		if ("".equals(area.getArea())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");

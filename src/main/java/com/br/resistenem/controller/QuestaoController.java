@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.br.resistenem.model.Alternativa;
 import com.br.resistenem.model.Area;
 import com.br.resistenem.model.Dificuldades;
 import com.br.resistenem.model.Questao;
+import com.br.resistenem.repository.AlternativaRepository;
 import com.br.resistenem.repository.AreaRepository;
 import com.br.resistenem.repository.DificuldadesRepository;
 import com.br.resistenem.repository.QuestaoRepository;
@@ -24,6 +26,8 @@ public class QuestaoController {
 	private QuestaoRepository qr;
 	@Autowired
 	private AreaRepository ar;
+	@Autowired
+	private AlternativaRepository altr;
 	@Autowired
 	private DificuldadesRepository dr;
 	
@@ -102,4 +106,25 @@ public class QuestaoController {
 		qr.save(QuestaoNew);
 		return "redirect:/questao/questoes";
 	}
+	
+	@RequestMapping(value="/questao/insertAlternativa/{id}", method=RequestMethod.GET)
+	public ModelAndView insertAlternativa(@PathVariable("id") String id) {
+		Questao questao = qr.findAllById(id);
+		ModelAndView mvAlternativa = new ModelAndView("/alternativa/insertAlternativa");
+		mvAlternativa.addObject("Questao", questao);
+		List<Alternativa> alternativa = altr.findAllByIdQuestao(id);
+		mvAlternativa.addObject("Alternativas", alternativa);
+		return mvAlternativa;
+	}
+	
+	@RequestMapping(value="/questao/editarAlternativa/{id}", method=RequestMethod.GET)
+	public ModelAndView editarAlternativa(@PathVariable("id") String id) {
+		Alternativa alternativa = altr.findAllById(id);
+		Questao questao = qr.findAllById(alternativa.getIdQuestao());
+		ModelAndView mvAlternativa = new ModelAndView("/alternativa/editAlternativa");
+		mvAlternativa.addObject("Questao", questao);
+		mvAlternativa.addObject("Alternativas", alternativa);
+		return mvAlternativa;
+	}
+	
 }

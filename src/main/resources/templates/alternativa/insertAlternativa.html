@@ -1,0 +1,39 @@
+	<th:block th:include="header"></th:block>
+	<div class="collection">
+	  <a class="collection-item active blue">Cadastro de Alternativa</a>
+	</div>
+	<div class="row">
+	<form method="post" action="/alternativa/insertAlternativa" class="container">
+	  <input name="idQuestao" type="hidden" th:value="${Questao.id}">
+	
+      <div class="row">
+      	<th:block th:include="mensagemValidacao"></th:block>
+        <div class="input-field col s12">
+	      <label for="questao">Questão</label><br><br>
+	      <p th:text=${Questao.pergunta}></p>
+	    </div>
+        <div class="input-field col s6">
+          <input placeholder="Alternativa" name="alternativa" type="text" >
+          <label for="alternativa">Alternativa</label>
+        </div>
+        <div class="input-field col s6">
+	  	    <p>
+			    <label>
+			      <input class="with-gap" name="respostaCorreta" type="radio" value="1" />
+			      <span>CERTA</span>
+			    </label>
+			    <label>
+			      <input class="with-gap" name="respostaCorreta" type="radio" value="0" checked/>
+			      <span>ERRADA</span>
+			    </label>
+			</p>
+        </div>
+	  <button class="btn waves-effect waves-light blue" type="submit" name="action">Cadastrar Alternativa
+	    <i class="material-icons right">send</i>
+	  </button>
+	</form>
+   	<th:block th:include="alternativa/alternativas"></th:block>
+
+    </div>
+	</div>
+	<th:block th:include="footer"></th:block>

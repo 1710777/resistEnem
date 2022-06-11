@@ -4,10 +4,10 @@
 	</div>
 	<h3><a href="/questao/questoes" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Questões</a></h3>
 	<div class="row">
-	<th:block th:include="mensagemValidacao"></th:block>
 	<form method="post" class="container">
       <div class="row">
-		<div class="input-field col s6">
+      	<th:block th:include="mensagemValidacao"></th:block>
+      	<div class="input-field col s6">
 			<label>Áreas</label><br><br>
    			<select name="idArea" class="browser-default">
 			    <option th:each="area : ${Questao.areas}" th:value="${area.id}" th:text="${area.area}"></option>
@@ -20,11 +20,11 @@
 			</select>
 		</div>
         <div class="input-field col s12">
-          <input placeholder="Pergunta" name="pergunta" type="text" >
+          <textarea id="pergunta" placeholder="Pergunta" name="pergunta" class="materialize-textarea"></textarea>
           <label for="pergunta">Pergunta</label>
         </div>
         <div class="input-field col s12">
-          <input placeholder="Explicação" name="explicacao" type="text" >
+          <textarea id="explicacao" placeholder="Explicação" name="explicacao" class="materialize-textarea"></textarea>
           <label for="explicacao">Explicação</label>
         </div>
         <div class="input-field col s6">

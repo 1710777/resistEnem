@@ -26,10 +26,12 @@ public class AreaController {
 	public String insertArea(Area area, RedirectAttributes attibutes) {
 		if ("".equals(area.getArea())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/area/insertArea";
 		}
 		ar.save(area);
 		attibutes.addFlashAttribute("menssagem", "Area incluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/area/insertArea";
 	}
 	
@@ -37,10 +39,12 @@ public class AreaController {
 	public String updateArea(Area area, RedirectAttributes attibutes) {
 		if ("".equals(area.getArea())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/area/editarArea/"+area.getId();
 		}
 		ar.save(area);
 		attibutes.addFlashAttribute("menssagem", "Area atualizada com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/area/editarArea/"+area.getId();
 	}
 	

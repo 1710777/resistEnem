@@ -26,10 +26,12 @@ public class DificuldadesController {
 	public String insertDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes) {
 		if ("".equals(Dificuldades.getDificuldade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/dificuldade/insertDificuldade";
 		}
 		dr.save(Dificuldades);
 		attibutes.addFlashAttribute("menssagem", "Dificuldades incluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/dificuldade/insertDificuldade";
 	}
 	
@@ -37,10 +39,12 @@ public class DificuldadesController {
 	public String updateDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes) {
 		if ("".equals(Dificuldades.getDificuldade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/dificuldade/editarDificuldades/"+Dificuldades.getId();
 		}
 		dr.save(Dificuldades);
 		attibutes.addFlashAttribute("menssagem", "Dificuldades atualizada com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/dificuldade/editarDificuldades/"+Dificuldades.getId();
 	}
 	

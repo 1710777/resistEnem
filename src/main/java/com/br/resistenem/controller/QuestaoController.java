@@ -47,10 +47,12 @@ public class QuestaoController {
 	public String insertQuestao(Questao Questao, RedirectAttributes attibutes) {
 		if ("".equals(Questao.getPergunta()) || "".equals(Questao.getExplicacao())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/questao/insertQuestao";
 		}
 		qr.save(Questao);
 		attibutes.addFlashAttribute("menssagem", "Questao incluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/questao/insertQuestao";
 	}
 	
@@ -58,10 +60,12 @@ public class QuestaoController {
 	public String updateQuestao(Questao Questao, RedirectAttributes attibutes) {
 		if ("".equals(Questao.getPergunta()) || "".equals(Questao.getExplicacao())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
+			attibutes.addFlashAttribute("error", true);
 			return "redirect:/questao/editarQuestao/"+Questao.getId();
 		}
 		qr.save(Questao);
 		attibutes.addFlashAttribute("menssagem", "Questao atualizada com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/questao/editarQuestao/"+Questao.getId();
 	}
 	

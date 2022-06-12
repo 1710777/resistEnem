@@ -1,9 +1,10 @@
-	<th:block th:include="header"></th:block>
+<th:block th:include="header"></th:block>
+<div class="container">
 	<div class="collection">
 	  <a class="collection-item active blue">Editar de Dificuldade</a>
 	</div>
-	<h3><a href="/dificuldade/dificuldades" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Dificuldades</a></h3>
 	<div class="row">
+	<h3><a href="/dificuldade/dificuldades" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Dificuldades</a></h3>
 	<th:block th:include="mensagemValidacao"></th:block>
 	<form method="post" action="/dificuldade/updateDificuldades" class="container" th:each="Dificuldade : ${Dificuldades}">
 	 <input placeholder="ID" name="id" type="hidden" th:value=${Dificuldade.id}>
@@ -30,4 +31,5 @@
 	  </button>
 	</form>
 	</div>
-	<th:block th:include="footer"></th:block>
+</div>
+<th:block th:include="footer"></th:block>

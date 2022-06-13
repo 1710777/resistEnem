@@ -1,27 +1,26 @@
-
-	<div class="collection">
-	  <a class="collection-item active blue">Lista de Alternativas</a>
-	</div>
-	<table class="container">
-		<thead>
-			<tr>
-				<th>Alternativas</th>
-				<th>Correta</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="Alternativa : ${Alternativas}">
-				<td><span th:text=${Alternativa.Alternativa}></span></td>
-				<td>
-				<span th:switch="${Alternativa.respostaCorreta}">
-			  		<p th:case="true"><span class="material-icons">check</span></p>
-			  		<p th:case="false"><span class="material-icons">do_not_disturb_on</span></p>
-				</span>
-				</td>
-				<td>
-					<a th:href="${#mvc.url('AC#editarAlternativa').arg(0, Alternativa.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
-					<a th:href="${#mvc.url('AC#excluirAlternativa').arg(0, Alternativa.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+		<div class="collection">
+		  <a class="collection-item active red">Lista de Alternativas</a>
+		</div>
+		<table class="container">
+			<thead>
+				<tr>
+					<th>Alternativas</th>
+					<th>Correta</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Alternativa : ${Alternativas}">
+					<td><span th:text=${Alternativa.Alternativa}></span></td>
+					<td>
+					<span th:switch="${Alternativa.respostaCorreta}">
+				  		<p th:case="true"><span class="material-icons">check</span></p>
+				  		<p th:case="false"><span class="material-icons">do_not_disturb_on</span></p>
+					</span>
+					</td>
+					<td>
+						<a th:href="${#mvc.url('AC#editarAlternativa').arg(0, Alternativa.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
+						<a th:href="${#mvc.url('AC#excluirAlternativa').arg(0, Alternativa.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>

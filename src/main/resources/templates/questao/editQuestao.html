@@ -1,9 +1,9 @@
 <th:block th:include="header"></th:block>
 <div class="container">
 	<div class="collection">
-	  <a class="collection-item active blue">Editar de Questão</a>
+	  <a class="collection-item active red">Editar de Questão</a>
 	</div>
-	<h3><a href="/questao/questoes" class="waves-effect waves-light btn blue"><i class="material-icons left">dashboard</i>Questões</a></h3>
+	<h3><a href="/questao/questoes" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Questões</a></h3>
 	<div class="row">
 	<th:block th:include="mensagemValidacao"></th:block>
 	<form method="post" action="/questao/updateQuestao" class="container" th:each="questao : ${Questao}">
@@ -40,7 +40,7 @@
 				</label>
 			</p>
         </div>
-		 <button class="btn waves-effect waves-light blue" type="submit" name="action">Editar Área
+		 <button class="btn waves-effect waves-light black right" type="submit" name="action">Editar Área
 		   <i class="material-icons right">edit</i>
 		 </button>  
 	</form>

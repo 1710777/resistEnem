@@ -16,7 +16,7 @@ public class AlternativaController {
 	@Autowired
 	private AlternativaRepository ar;
 
-	
+
 	@RequestMapping(value="/alternativa/insertAlternativa", method=RequestMethod.POST)
 	public String insertAlternativa(Alternativa alternativa, RedirectAttributes attibutes) {
 		if ("".equals(alternativa.getAlternativa()) || "".equals(alternativa.getIdQuestao())) {
@@ -35,7 +35,7 @@ public class AlternativaController {
 		if ("".equals(alternativa.getAlternativa()) || "".equals(alternativa.getIdQuestao())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
-			return "redirect:/alternativa/insertAlternativa";
+			return "redirect:/questao/editarAlternativa/"+alternativa.getId();
 		}
 		ar.save(alternativa);
 		attibutes.addFlashAttribute("menssagem", "Alternativa atualizada com sucesso!");

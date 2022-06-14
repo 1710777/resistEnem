@@ -40,6 +40,7 @@ public class QuestaoController {
 		questao.setListaDificuldades(dificuldades);
 		ModelAndView mvQuestao = new ModelAndView("questao/insertQuestao");
 		mvQuestao.addObject("Questao", questao);
+		mvQuestao.addObject("Header", true);
 		return mvQuestao;
 	}
 	
@@ -80,6 +81,8 @@ public class QuestaoController {
 			questao.setDificuldade(diciduldade);
 		}
 		mvQuestao.addObject("Questoes", Questaos);
+		mvQuestao.addObject("Header", true);
+
 		return mvQuestao;
 	}
 	
@@ -92,6 +95,8 @@ public class QuestaoController {
 		questao.setListaDificuldades(dificuldades);
 		ModelAndView mvQuestao = new ModelAndView("questao/editQuestao");
 		mvQuestao.addObject("Questao", questao);
+		mvQuestao.addObject("Header", true);
+
 		return mvQuestao;
 	}
 	
@@ -118,6 +123,8 @@ public class QuestaoController {
 		mvAlternativa.addObject("Questao", questao);
 		List<Alternativa> alternativa = altr.findAllByIdQuestao(id);
 		mvAlternativa.addObject("Alternativas", alternativa);
+		mvAlternativa.addObject("Header", true);
+
 		return mvAlternativa;
 	}
 	
@@ -128,6 +135,7 @@ public class QuestaoController {
 		ModelAndView mvAlternativa = new ModelAndView("/alternativa/editAlternativa");
 		mvAlternativa.addObject("Questao", questao);
 		mvAlternativa.addObject("Alternativas", alternativa);
+		mvAlternativa.addObject("Header", true);
 		return mvAlternativa;
 	}
 	

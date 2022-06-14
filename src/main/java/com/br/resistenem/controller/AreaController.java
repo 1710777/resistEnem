@@ -18,8 +18,10 @@ public class AreaController {
 	private AreaRepository ar;
 	
 	@RequestMapping(value="/area/insertArea", method=RequestMethod.GET)
-	public String insertArea() {
-		return "/area/insertArea";
+	public ModelAndView insertArea() {
+		ModelAndView mvArea = new ModelAndView("/area/insertArea");
+		mvArea.addObject("Header", true);
+		return mvArea;
 	}
 	
 	@RequestMapping(value="/area/insertArea", method=RequestMethod.POST)
@@ -53,6 +55,8 @@ public class AreaController {
 		ModelAndView mvArea = new ModelAndView("area/area");
 		Iterable<Area> areas = ar.findAll();
 		mvArea.addObject("Areas", areas);
+		mvArea.addObject("Header", true);
+
 		return mvArea;
 	}
 	
@@ -61,6 +65,7 @@ public class AreaController {
 		Area area = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
 		mvArea.addObject("Area", area);
+		mvArea.addObject("Header", true);
 		return mvArea;
 	}
 	

@@ -53,6 +53,7 @@ public class AdministradorController {
 		ModelAndView mvadministrador = new ModelAndView("Administrador/administrador");
 		Iterable<Administrador> administradores = admr.findAll();
 		mvadministrador.addObject("Administradores", administradores);
+		mvadministrador.addObject("Header", true);
 		return mvadministrador;
 	}
 	

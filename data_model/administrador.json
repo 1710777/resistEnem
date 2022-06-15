@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "62a66529dd18ac4315cc0146"
+  },
+  "nome": "Andre",
+  "email": "ascheidegger@gmail.com",
+  "usuario": "ascheidegger",
+  "senha": "#R2e5g0i3",
+  "status": true,
+  "_class": "com.br.resistenem.model.Administrador"
+},{
+  "_id": {
+    "$oid": "62a67575dd18ac4315cc014e"
+  },
+  "nome": "Jaqueline",
+  "email": "teste@teste.com.br",
+  "usuario": "jaqueline",
+  "senha": "jaqueline",
+  "status": true,
+  "_class": "com.br.resistenem.model.Administrador"
+},{
+  "_id": {
+    "$oid": "62a675a4dd18ac4315cc014f"
+  },
+  "nome": "Luan",
+  "email": "luan@gmail.com",
+  "usuario": "luan",
+  "senha": "luan",
+  "status": true,
+  "_class": "com.br.resistenem.model.Administrador"
+},{
+  "_id": {
+    "$oid": "62a675fadd18ac4315cc0150"
+  },
+  "nome": "Joao Bacelar",
+  "email": "joaobacelar@gmail.com",
+  "usuario": "joaobacelar",
+  "senha": "joaobacelar",
+  "status": true,
+  "_class": "com.br.resistenem.model.Administrador"
+},{
+  "_id": {
+    "$oid": "62a67969dd18ac4315cc0152"
+  },
+  "nome": "Regyani",
+  "email": "regyane@gmail.com",
+  "usuario": "regyane",
+  "senha": "regyane",
+  "status": true,
+  "_class": "com.br.resistenem.model.Administrador"
+}]

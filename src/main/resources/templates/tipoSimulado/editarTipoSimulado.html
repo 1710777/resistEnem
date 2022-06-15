@@ -1,0 +1,36 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Editar Tipo Simulado</a>
+	</div>
+	<div class="row">
+		<h3><a href="/tipoSimulado/TipoSimulados" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo Simulados</a></h3>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form method="post" action="/tipoSimulado/updateTipoSimulado" class="container" th:each="tipoSimulado : ${TipoSimulado}">
+			<div class="row">
+				<input placeholder="ID" name="id" type="hidden" th:value=${tipoSimulado.id}>
+		        <div class="input-field col s6">
+		         <textarea id="tipoSimulado" placeholder="Tipo Simulado" name="tipoSimulado" class="materialize-textarea" th:text="${tipoSimulado.tipoSimulado}"></textarea>
+		          <label for="tipoSimulado">Tipo Simulado</label>
+		        </div>
+		        <div class="input-field col s6">
+			  	    <p>
+				  		<label>  		
+						      <input class="with-gap blue" name="status" type="radio" value="1" th:checked="${tipoSimulado.status} == true"/>
+						      <span>Ativado</span>
+						</label>
+						<label>
+						      <input class="with-gap blue" name="status" type="radio" value="0" th:checked="${tipoSimulado.status} == false"/>
+						      <span>Desativado</span>
+						</label>
+					</p>
+		        </div>
+		      </div>
+			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Editar Tipo Simulado
+			    <i class="material-icons right">edit</i>
+			  </button>
+			</div>
+		</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

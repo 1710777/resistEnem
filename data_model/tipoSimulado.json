@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "62aa299e0cc7bb7f3535cf48"
+  },
+  "tipoSimulado": "Área do Conhecimento",
+  "status": true,
+  "_class": "com.br.resistenem.model.TipoSimulado"
+},{
+  "_id": {
+    "$oid": "62aa2c2c94a10c259f234772"
+  },
+  "tipoSimulado": "Dia do ENEM",
+  "status": true,
+  "_class": "com.br.resistenem.model.TipoSimulado"
+},{
+  "_id": {
+    "$oid": "62aa2c4694a10c259f234773"
+  },
+  "tipoSimulado": "ENEM Completo",
+  "status": true,
+  "_class": "com.br.resistenem.model.TipoSimulado"
+},{
+  "_id": {
+    "$oid": "62aa2c6a94a10c259f234774"
+  },
+  "tipoSimulado": "1° Dia do ENEM",
+  "status": false,
+  "_class": "com.br.resistenem.model.TipoSimulado"
+},{
+  "_id": {
+    "$oid": "62aa2c7394a10c259f234775"
+  },
+  "tipoSimulado": "2° Dia do ENEM",
+  "status": false,
+  "_class": "com.br.resistenem.model.TipoSimulado"
+}]

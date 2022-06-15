@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "629ff2ae886e923711b193f3"
   },
-  "area": "Matemática e suas Tecnologias",
+  "area": "Matemática",
   "status": true,
   "_class": "com.br.resistenem.model.Area"
 },{

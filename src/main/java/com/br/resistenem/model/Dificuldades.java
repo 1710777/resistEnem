@@ -9,6 +9,8 @@ public class Dificuldades {
 	@NonNull
 	public String dificuldade;
 	@NonNull
+	public Integer quatidade;
+	@NonNull
 	public Boolean status;
 	public Dificuldades() {
 		super();
@@ -31,6 +33,12 @@ public class Dificuldades {
 	}
 	public void setDificuldade(String dificuldade) {
 		this.dificuldade = dificuldade;
+	}
+	public Integer getQuatidade() {
+		return quatidade;
+	}
+	public void setQuatidade(Integer quatidade) {
+		this.quatidade = quatidade;
 	}
 	public Boolean getStatus() {
 		return status;

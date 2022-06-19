@@ -13,7 +13,7 @@ public class Administrador {
 	@NonNull
 	public String usuario;
 	@NonNull
-	public String senha;
+	public static String senha;
 	@NonNull
 	public Boolean status;
 	
@@ -54,7 +54,7 @@ public class Administrador {
 		this.usuario = usuario;
 	}
 
-	public String getSenha() {
+	public static String getSenha() {
 		return senha;
 	}
 

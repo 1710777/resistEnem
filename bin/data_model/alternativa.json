@@ -1,0 +1,321 @@
+[{
+  "_id": {
+    "$oid": "62a4fce15bed2304c63f9cc7"
+  },
+  "idQuestao": "62a497fe47689371f3554d45",
+  "alternativa": "ressalta a importância de os professores incentivarem os jovens às práticas de leitura.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fced5bed2304c63f9cc8"
+  },
+  "idQuestao": "62a497fe47689371f3554d45",
+  "alternativa": "critica pesquisas tradicionais que atribuem a falta de leitura à precariedade de bibliotecas.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fcfa5bed2304c63f9cc9"
+  },
+  "idQuestao": "62a497fe47689371f3554d45",
+  "alternativa": "rebate a ideia de que as políticas educacionais são eficazes no combate à crise de leitura.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd075bed2304c63f9cca"
+  },
+  "idQuestao": "62a497fe47689371f3554d45",
+  "alternativa": "questiona a existência de uma crise de leitura com base nos dados de pesquisas acadêmicas.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd135bed2304c63f9ccb"
+  },
+  "idQuestao": "62a497fe47689371f3554d45",
+  "alternativa": "atribui a crise da leitura à falta de incentivos e ao desinteresse dos jovens por livros de qualidade.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd3e5bed2304c63f9ccc"
+  },
+  "idQuestao": "62a49c4f6891a23961576498",
+  "alternativa": "uma palavra, a partir de imagens com as quais ela pode ser comparada, a fim de assumir novos significados.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd475bed2304c63f9ccd"
+  },
+  "idQuestao": "62a49c4f6891a23961576498",
+  "alternativa": "um urinol, em referência às artes visuais ligadas às vanguardas do início do século XX.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd4f5bed2304c63f9cce"
+  },
+  "idQuestao": "62a49c4f6891a23961576498",
+  "alternativa": "uma ave, que compõe, com seus movimentos, uma imagem historicamente ligada à palavra poética.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd565bed2304c63f9ccf"
+  },
+  "idQuestao": "62a49c4f6891a23961576498",
+  "alternativa": "uma máquina, levando em consideração a relevância do discurso técnico-científico pós-Revolução Industrial.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd5e5bed2304c63f9cd0"
+  },
+  "idQuestao": "62a49c4f6891a23961576498",
+  "alternativa": "um tecido, visto que sua composição depende de elementos intrínsecos ao eu lírico.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd825bed2304c63f9cd1"
+  },
+  "idQuestao": "62a49c8a6891a23961576499",
+  "alternativa": "\"a singularidade\".",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd885bed2304c63f9cd2"
+  },
+  "idQuestao": "62a49c8a6891a23961576499",
+  "alternativa": "\"tais vantagens\".",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd8e5bed2304c63f9cd3"
+  },
+  "idQuestao": "62a49c8a6891a23961576499",
+  "alternativa": "\"os gabos\".",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd975bed2304c63f9cd4"
+  },
+  "idQuestao": "62a49c8a6891a23961576499",
+  "alternativa": "\"Longe disso\".",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fd9e5bed2304c63f9cd5"
+  },
+  "idQuestao": "62a49c8a6891a23961576499",
+  "alternativa": "\"Em geral\".",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fdbe5bed2304c63f9cd6"
+  },
+  "idQuestao": "62a49cb46891a2396157649a",
+  "alternativa": "pai",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fdc75bed2304c63f9cd7"
+  },
+  "idQuestao": "62a49cb46891a2396157649a",
+  "alternativa": "filho.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fdcd5bed2304c63f9cd8"
+  },
+  "idQuestao": "62a49cb46891a2396157649a",
+  "alternativa": "filha.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fddb5bed2304c63f9cd9"
+  },
+  "idQuestao": "62a49cb46891a2396157649a",
+  "alternativa": "avó materna.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fde25bed2304c63f9cda"
+  },
+  "idQuestao": "62a49cb46891a2396157649a",
+  "alternativa": "avô materno",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe1f5bed2304c63f9cdb"
+  },
+  "idQuestao": "62a49cd86891a2396157649b",
+  "alternativa": "absorção da umidade presente no ar atmosférico.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe285bed2304c63f9cdc"
+  },
+  "idQuestao": "62a49cd86891a2396157649b",
+  "alternativa": "fusão do hidróxido pela troca de calor com o ambiente.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe2e5bed2304c63f9cdd"
+  },
+  "idQuestao": "62a49cd86891a2396157649b",
+  "alternativa": "reação das impurezas do produto com o oxigênio do ar.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe355bed2304c63f9cde"
+  },
+  "idQuestao": "62a49cd86891a2396157649b",
+  "alternativa": "adsorção de gases atmosféricos na superfície do sólido.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe3e5bed2304c63f9cdf"
+  },
+  "idQuestao": "62a49cd86891a2396157649b",
+  "alternativa": "reação do hidróxido de sódio com o gás nitrogênio presente no ar.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe5c5bed2304c63f9ce0"
+  },
+  "idQuestao": "62a49cf86891a2396157649c",
+  "alternativa": "R$ 900,00.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe685bed2304c63f9ce1"
+  },
+  "idQuestao": "62a49cf86891a2396157649c",
+  "alternativa": "R$ 1 200,00.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe735bed2304c63f9ce2"
+  },
+  "idQuestao": "62a49cf86891a2396157649c",
+  "alternativa": "R$ 2 100,00.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe795bed2304c63f9ce3"
+  },
+  "idQuestao": "62a49cf86891a2396157649c",
+  "alternativa": " R$ 3 900,00.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe805bed2304c63f9ce4"
+  },
+  "idQuestao": "62a49cf86891a2396157649c",
+  "alternativa": "R$ 5 100,00.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fe9f5bed2304c63f9ce5"
+  },
+  "idQuestao": "62a49d1b6891a2396157649d",
+  "alternativa": "105 peças.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fea55bed2304c63f9ce6"
+  },
+  "idQuestao": "62a49d1b6891a2396157649d",
+  "alternativa": "120 peças.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4feab5bed2304c63f9ce7"
+  },
+  "idQuestao": "62a49d1b6891a2396157649d",
+  "alternativa": "210 peças.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4feb35bed2304c63f9ce8"
+  },
+  "idQuestao": "62a49d1b6891a2396157649d",
+  "alternativa": "243 peças.",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4febb5bed2304c63f9ce9"
+  },
+  "idQuestao": "62a49d1b6891a2396157649d",
+  "alternativa": "420 peças.",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fedd5bed2304c63f9cea"
+  },
+  "idQuestao": "62a49d3a6891a2396157649e",
+  "alternativa": "5",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fee55bed2304c63f9ceb"
+  },
+  "idQuestao": "62a49d3a6891a2396157649e",
+  "alternativa": "10",
+  "respostaCorreta": true,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4feeb5bed2304c63f9cec"
+  },
+  "idQuestao": "62a49d3a6891a2396157649e",
+  "alternativa": "15",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fef35bed2304c63f9ced"
+  },
+  "idQuestao": "62a49d3a6891a2396157649e",
+  "alternativa": "20",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+},{
+  "_id": {
+    "$oid": "62a4fef75bed2304c63f9cee"
+  },
+  "idQuestao": "62a49d3a6891a2396157649e",
+  "alternativa": "25",
+  "respostaCorreta": false,
+  "_class": "com.br.resistenem.model.Alternativa"
+}]

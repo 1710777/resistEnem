@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="input-field col s12">
+		<div  th:if="${error == true}">
+			<div class="alert alert-success alert-dismissible red white-text center" role="alert" th:if="${not #strings.isEmpty(menssagem)}">
+				<span th:text="${menssagem}"></span>
+			</div>
+		</div>
+		<div  th:if="${error == false}">
+			<div class="alert alert-success alert-dismissible green white-text center" role="alert" th:if="${not #strings.isEmpty(menssagem)}">
+				<span th:text="${menssagem}"></span>
+			</div>
+		</div>
+	</div>
+</div>

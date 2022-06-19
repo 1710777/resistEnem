@@ -1,0 +1,49 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Editar Administrador</a>
+	</div>
+	<div class="row">
+		<h3><a href="/administrador/administradores" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Administradores</a></h3>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form action="/administrador/updateAdministrador" method="post" class="container" th:each="administrador : ${Administrador}">
+			<input placeholder="ID" name="id" type="hidden" th:value=${Administrador.id}>
+			<div class="row">
+				<div class="input-field col s6">
+				  <input placeholder="Nome" name="nome" type="text" th:value=${Administrador.nome}>
+				  <label for="nome">Nome</label>
+				</div>
+				<div class="input-field col s6">
+				  <input placeholder="E-mail" name="email" type="text" th:value=${Administrador.email}>
+				  <label for="email">E-mail</label>
+				</div>
+				<div class="input-field col s6">
+				  <input placeholder="Usuário" name="usuario" type="text" th:value=${Administrador.usuario}>
+				  <label for="usuario">Usuário</label>
+				</div>
+				<div class="input-field col s6">
+				  <input placeholder="Senha" name="senha" type="password" th:value=${Administrador.senha}>
+				  <label for="senha">Senha</label>
+				</div>
+		    </div>
+	        <div class="input-field col s12">
+		  	    <p>
+				    <label>
+				      <input class="with-gap" name="status" type="radio" value="1" th:checked="${Administrador.status} == true" />
+				      <span>Ativado</span>
+				    </label>
+				    <label>
+				      <input class="with-gap" name="status" type="radio" value="0" th:checked="${Administrador.status} == false"/>
+				      <span>Desativado</span>
+				    </label>
+				</p>
+	        </div>
+	        <div class="input-field col s12">
+				<button class="btn waves-effect waves-light black right" type="submit" name="action">Alterar Administrador
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

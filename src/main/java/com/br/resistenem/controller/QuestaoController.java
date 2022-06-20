@@ -2,6 +2,8 @@ package com.br.resistenem.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +34,11 @@ public class QuestaoController {
 	private DificuldadesRepository dr;
 	
 	@RequestMapping(value="/questao/insertQuestao", method=RequestMethod.GET)
-	public ModelAndView insertQuestao() {
+	public ModelAndView insertQuestao(HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Questao questao = new Questao();
 		List<Area> areas = ar.findAll();
 		questao.setAreas(areas);
@@ -45,7 +51,10 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping(value="/questao/insertQuestao", method=RequestMethod.POST)
-	public String insertQuestao(Questao Questao, RedirectAttributes attibutes) {
+	public String insertQuestao(Questao Questao, RedirectAttributes attibutes, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(Questao.getPergunta()) || "".equals(Questao.getExplicacao())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -58,7 +67,10 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping(value="/questao/updateQuestao", method=RequestMethod.POST)
-	public String updateQuestao(Questao Questao, RedirectAttributes attibutes) {
+	public String updateQuestao(Questao Questao, RedirectAttributes attibutes, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(Questao.getPergunta()) || "".equals(Questao.getExplicacao())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -71,7 +83,12 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping("/questao/questoes")
-	public ModelAndView listaQuestao() {
+	public ModelAndView listaQuestao(HttpSession session) {
+		
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		ModelAndView mvQuestao = new ModelAndView("questao/questao");
 		Iterable<Questao> Questaos = qr.findAll();
 		for (Questao questao : Questaos) {
@@ -87,7 +104,11 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping("/questao/editarQuestao/{id}")
-	public ModelAndView editarQuestao(@PathVariable("id") String id) {
+	public ModelAndView editarQuestao(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Questao questao = qr.findAllById(id);
 		List<Area> areas = ar.findAll();
 		questao.setAreas(areas);
@@ -101,7 +122,10 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping("/questao/excluirQuestao/{id}")
-	public String excluirQuestao(@PathVariable("id") String id) {
+	public String excluirQuestao(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Questao QuestaoNew = qr.findAllById(id);
 		QuestaoNew.setStatus(false);
 		qr.save(QuestaoNew);
@@ -109,7 +133,10 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping("/questao/publicarQuestao/{id}")
-	public String publicarQuestao(@PathVariable("id") String id) {
+	public String publicarQuestao(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Questao QuestaoNew = qr.findAllById(id);
 		QuestaoNew.setStatus(true);
 		qr.save(QuestaoNew);
@@ -117,7 +144,11 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping(value="/questao/insertAlternativa/{id}", method=RequestMethod.GET)
-	public ModelAndView insertAlternativa(@PathVariable("id") String id) {
+	public ModelAndView insertAlternativa(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Questao questao = qr.findAllById(id);
 		ModelAndView mvAlternativa = new ModelAndView("/alternativa/insertAlternativa");
 		mvAlternativa.addObject("Questao", questao);
@@ -129,7 +160,11 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping(value="/questao/editarAlternativa/{id}", method=RequestMethod.GET)
-	public ModelAndView editarAlternativa(@PathVariable("id") String id) {
+	public ModelAndView editarAlternativa(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Alternativa alternativa = altr.findAllById(id);
 		Questao questao = qr.findAllById(alternativa.getIdQuestao());
 		ModelAndView mvAlternativa = new ModelAndView("/alternativa/editAlternativa");

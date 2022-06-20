@@ -1,5 +1,7 @@
 package com.br.resistenem.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,12 +20,18 @@ public class DificuldadesController {
 	private DificuldadesRepository dr;
 	
 	@RequestMapping(value="/dificuldade/insertDificuldade", method=RequestMethod.GET)
-	public String cadastrarDificuldades() {
+	public String cadastrarDificuldades(HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		return "/dificuldades/insertDificuldades";
 	}
 	
 	@RequestMapping(value="/dificuldade/insertDificuldade", method=RequestMethod.POST)
-	public String insertDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes) {
+	public String insertDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(Dificuldades.getDificuldade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -36,7 +44,10 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping(value="/dificuldade/updateDificuldades", method=RequestMethod.POST)
-	public String updateDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes) {
+	public String updateDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(Dificuldades.getDificuldade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -49,7 +60,11 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping("/dificuldade/dificuldades")
-	public ModelAndView listaDificuldades() {
+	public ModelAndView listaDificuldades(HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		ModelAndView mvDificuldades = new ModelAndView("dificuldades/dificuldades");
 		Iterable<Dificuldades> Dificuldadess = dr.findAll();
 		mvDificuldades.addObject("Dificuldades", Dificuldadess);
@@ -59,7 +74,11 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping("/dificuldade/editarDificuldades/{id}")
-	public ModelAndView editarDificuldades(@PathVariable("id") String id) {
+	public ModelAndView editarDificuldades(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Dificuldades Dificuldades = dr.findAllById(id);
 		ModelAndView mvDificuldades = new ModelAndView("Dificuldades/editDificuldades");
 		mvDificuldades.addObject("Dificuldades", Dificuldades);
@@ -68,7 +87,10 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping("/dificuldade/excluirDificuldades/{id}")
-	public String excluirDificuldades(@PathVariable("id") String id) {
+	public String excluirDificuldades(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Dificuldades DificuldadesNew = dr.findAllById(id);
 		DificuldadesNew.setStatus(false);
 		dr.save(DificuldadesNew);
@@ -76,7 +98,10 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping("publicarDificuldades/{id}")
-	public String publicarDificuldades(@PathVariable("id") String id) {
+	public String publicarDificuldades(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Dificuldades DificuldadesNew = dr.findAllById(id);
 		DificuldadesNew.setStatus(true);
 		dr.save(DificuldadesNew);

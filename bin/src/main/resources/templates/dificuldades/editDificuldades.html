@@ -1,0 +1,35 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Editar de Dificuldade</a>
+	</div>
+	<div class="row">
+	<h3><a href="/dificuldade/dificuldades" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Dificuldades</a></h3>
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form method="post" action="/dificuldade/updateDificuldades" class="container" th:each="Dificuldade : ${Dificuldades}">
+	 <input placeholder="ID" name="id" type="hidden" th:value=${Dificuldade.id}>
+	      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Dificuldade" name="dificuldade" type="text" th:value=${Dificuldade.dificuldade}>
+          <label for="area">Dificuldade</label>
+        </div>
+        <div class="input-field col s6">
+	  	    <p>
+		  		<label>  		
+				      <input class="with-gap blue" name="status" type="radio" value="1" th:checked="${Dificuldade.status} == true"/>
+				      <span>Ativado</span>
+				</label>
+				<label>
+				      <input class="with-gap blue" name="status" type="radio" value="0" th:checked="${Dificuldade.status} == false"/>
+				      <span>Desativado</span>
+				</label>
+			</p>
+        </div>
+      </div>
+	  <button class="btn waves-effect waves-light black right" type="submit" name="action">Editar Dificuldade
+	    <i class="material-icons right">edit</i>
+	  </button>
+	</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

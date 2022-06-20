@@ -1,0 +1,35 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Cadastro de Área</a>
+	</div>
+	<div class="row">
+		<h3><a href="/area/areas" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Áreas</a></h3>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form method="post" class="container">
+			<div class="row">
+		        <div class="input-field col s6">
+		          <input placeholder="Área" name="area" type="text" >
+		          <label for="area">Área</label>
+		        </div>
+		        <div class="input-field col s6">
+			  	    <p>
+					    <label>
+					      <input class="with-gap" name="status" type="radio" value="1" checked />
+					      <span>Ativado</span>
+					    </label>
+					    <label>
+					      <input class="with-gap" name="status" type="radio" value="0" />
+					      <span>Desativado</span>
+					    </label>
+					</p>
+		        </div>
+		      </div>
+			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Cadastrar Área
+			    <i class="material-icons right">send</i>
+			  </button>
+			</div>
+		</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

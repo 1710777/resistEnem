@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "62a497fe47689371f3554d45"
+  },
+  "idArea": "629ff8bb886e923711b193f6",
+  "idDificuldade": "62a32e2984a9536ace6c0b94",
+  "pergunta": "(Enem/2014)  Censura moralista  Há tempos que a leitura está em pauta. E, diz-se, em crise. Comenta-se esta crise, por exemplo, apontando a precariedade das práticas de leitura, lamentando a falta de familiaridade dos jovens com livros, reclamando da falta de bibliotecas em tantos municípios, do preço dos livros em livrarias, num nunca acabar de problemas e de carências. Mas, de um tempo para cá, pesquisas acadêmicas vêm dizendo que talvez não seja exatamente assim, que brasileiros leem, sim, só que leem livros que as pesquisas tradicionais não levam em conta. E, também de um tempo para cá, políticas educacionais têm tomado a peito investir em livros e em leitura.  LAJOLO, M. Disponível em: www.estadao.com.br. Acesso em: 2 dez. 2013 (fragmento).  Os falantes, nos textos que produzem, sejam orais ou escritos, posicionam-se frente a assuntos que geram consenso ou despertam polêmica. No texto, a autora",
+  "explicacao": "Alternativa correta: d) questiona a existência de uma crise de leitura com base nos dados de pesquisas acadêmicas.  a) ERRADA. O texto não faz menção à falta de incentivo dos professores à leitura.  b) ERRADA. Apesar de informar que as pesquisas acadêmicas mostram que os brasileiros leem, ao passo que as pesquisas tradicionais dizem o contrário, estas pesquisas apontam vários problemas além da falta de bibliotecas.  c) ERRADA. No que respeita às políticas educacionais, a autora apenas informa o que as pesquisas acadêmicas dizem sobre o investimento feito para a leitura, mas não toma qualquer posicionamento quanto a essa questão.  d) CORRETA. A autora começa por falar da suposta crise nas práticas de leitura e, num segundo momento, informa que as pesquisas acadêmicas levam a crer que tal crise não existe.  e) ERRADA. O texto não dá qualquer indicação acerca do desinteresse dos jovens por livros de qualidade.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49c4f6891a23961576498"
+  },
+  "idArea": "629ff8bb886e923711b193f6",
+  "idDificuldade": "62a32e2484a9536ace6c0b93",
+  "pergunta": "(Enem/2016)  Antiode  Poesia, não será esse o sentido em que ainda te escrevo: flor! (Te escrevo: flor! Não uma flor, nem aquela flor-Virtude – em disfarçados urinóis). Flor é a palavra flor; verso inscrito no verso, como as manhãs no tempo. Flor é o salto da ave para o voo: o saltofora do sono quando seu tecido se rompe; é uma explosão posta a funcionar, como uma máquina, uma jarra de flores.  MELO NETO, J. C. Psicologia da composição Rio de Janeiro Nova Fronteira, 1997 (fragmento)",
+  "explicacao": "Alternativa correta: a) uma palavra, a partir de imagens com as quais ela pode ser comparada, a fim de assumir novos significados.  a) CORRETA. A palavra “flor” é repetida diversas vezes e de forma comparativa com outros elementos presentes no poema: “Flor é a palavra”, “Flor é o salto da ave”, entre outras.  b) ERRADA. Há apenas uma referência feita ao urinol, o que não é suficiente para dizer que o poema propõe a sua recriação.  c) ERRADA. O mesmo acontece com a ave, cuja única referência é : “Flor é o salto da ave para o voo: o saltofora do sono quando seu tecido se rompe”.  d) ERRADA. O poeta menciona uma máquina apenas com o intuito de comparar uma explosão com a ação de fazê-la funcionar.  e) ERRADA. Mais uma vez, a única menção feita pelo poeta ao tecido encontra-se no seguinte trecho: “o saltofora do sono quando seu tecido se rompe”.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49c8a6891a23961576499"
+  },
+  "idArea": "629ff8bb886e923711b193f6",
+  "idDificuldade": "62a32e2484a9536ace6c0b93",
+  "pergunta": "(Enem/2017) Essas moças tinham o vezo de afirmar o contrário do que desejavam. Notei a singularidade quando principiaram a elogiar o meu paletó cor de macaco. Examinavam-no sérias, achavam o pano e os aviamentos de qualidade superior, o feitio admirável. Envaideci-me: nunca havia reparado em tais vantagens. Mas os gabas se prolongaram, trouxeram-me desconfiança. Percebi afinal que elas zombavam e não me susceptibilizei. Longe disso: achei curiosa aquela maneira de falar pelo avesso, diferente das grosserias a que me habituara. Em geral me diziam com franqueza que a roupa não me assentava no corpo, sobrava nos sovacos.  RAMOS, G. Infância. Rio de Janeiro: Record, 1994.  Por meio de recursos linguísticos, os textos mobilizam estratégias para introduzir e retomar ideias, promovendo a progressão do tema. No fragmento transcrito, um novo aspecto do tema é introduzido pela expressão",
+  "explicacao": "Alternativa correta: d) \"Longe disso\".  a) ERRADA. “a singularidade” não é uma expressão.  b) ERRADA. “tais vantagens” também não é uma expressão, bem como não promove a progressão do texto.  c) ERRADA. Gabos são elogios. Trata-se de um substantivo, precedido por um artigo, e não de uma expressão.  d) CERTA. Os elogios que as mulheres faziam ao paletó do homem eram, na verdade, irônicos. Quando ele percebeu isso, em vez de ficar ressentido, achou curiosa a ironia das moças: “Longe disso: achei curiosa aquela maneira de falar pelo avesso”.  e) ERRADA. A frase que é introduzida por “Em geral”, dá a ideia de conclusão, ou seja, de finalização do assunto, e não de progressão do tema.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49cb46891a2396157649a"
+  },
+  "idArea": "629ff6c9886e923711b193f5",
+  "idDificuldade": "62a32e2984a9536ace6c0b94",
+  "pergunta": "(Enem/2013) Para a identificação de um rapaz vítima de acidente, fragmentos de tecidos foram retirados e submetidos à extração de DNA nuclear, para comparação com o DNA disponível dos possíveis familiares (pai, avô materno, avó materna, filho e filha). Como o teste com o DNA nuclear não foi conclusivo, os peritos optaram por usar também DNA mitocondrial, para dirimir dúvidas.  Para identificar o corpo, os peritos devem verificar se há homologia entre o DNA mitocondrial do rapaz e o DNA mitocondrial do(a)",
+  "explicacao": "Alternativa correta: d) avó materna.  As mitocôndrias são organelas presentes em células eucarióticas cuja função é produzir a maior parte da energia necessária para as atividades celulares. Esse processo recebe o nome de respiração celular.  Na estrutura da mitocôndria está presente moléculas circulares de DNA. O DNA está presente em todos os seres vivos e carrega toda a informação genética de um organismo.  Embora a maior parte do material genético se encontre no interior do núcleo celular, as mitocôndrias também possuem informações genéticas sobre o indivíduo; trata-se do DNA mitocondrial.  De acordo com essas informações temos que:  a) ERRADA. Na fecundação o espermatozoide é atraído pelo óvulo devido à liberação de substâncias químicas.  Com a entrada do espermatozoide suas estruturas fundem-se ao óvulo, assim os corpos basais do flagelo originam os centríolos do zigoto e o resto do flagelo e as mitocôndrias degeneram-se na fertilização. Dessa forma, o DNA mitocondrial é oriundo da mãe, pois esse está presente integralmente dentro do óvulo.  b) ERRADA. Essa herança genética é de linhagem materna, sendo assim a transmissão do material só corre de mãe para filho.  c) ERRADA. Essa herança genética é de linhagem materna, sendo assim a transmissão do material só corre de mãe para filha.  d) CORRETA. A informação genética encontrada no interior das mitocôndrias é herdada apenas da mãe. Da mesma maneira, a mãe recebeu essa herança da avó do indivíduo.  e) ERRADA. A transmissão do material não tem nenhuma ligação com a linhagem paterna.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49cd86891a2396157649b"
+  },
+  "idArea": "629ff6c9886e923711b193f5",
+  "idDificuldade": "62a32e2984a9536ace6c0b94",
+  "pergunta": "(Enem/2015) A soda cáustica pode ser usada no desentupimento de encanamentos domésticos e tem, em sua composição, o hidróxido de sódio como principal componente, além de algumas impurezas. A soda normalmente é comercializada na forma sólida, mas que apresenta aspecto “derretido” quando exposta ao ar por certo período.  O fenômeno de “derretimento” decorre da",
+  "explicacao": "Alternativa correta: a) absorção da umidade presente no ar atmosférico.  a) CORRETA. O hidróxido de sódio é uma base forte, altamente higroscópica e, por isso, absorve a umidade do ar com facilidade.  Nesse processo, o vapor d’água na atmosfera é retido de tal forma que água líquida começa a se formar e o aspecto de “derretido” após certo período ocorre, porque quanto maior a quantidade de água, o sólido passa por uma dissolução, devido à solubilidade do hidróxido de sódio em água.  b) ERRADA. A fusão é a passagem do estado sólido para o líquido. A troca de calor com o ambiente não faz ocorrer a fusão do NaOH, porque o ponto de fusão dessa base é de 318 ºC.  c) ERRADA. As impurezas que podem conter no hidróxido de sódio são resultantes do processo de fabricação. Além de estarem presentes em pequenas quantidades, as impurezas como carbonatos, cloretos e sulfatos ao reagirem com o ar não geram o aspecto mencionado no texto.  d) ERRADA. O gás presente em maior quantidade na atmosfera é o nitrogênio e em seguida o oxigênio. Há também pequenas quantidades de outros gases, como dióxido de carbono e gases nobres.  A adsorção dos gases ocorre quando esses ficam retidos na superfície de um sólido, sendo a sílica em gel e o carvão ativado os adsorventes mais conhecidos, que devido à quantidade de poros tem a capacidade de adsorção aumentada.  A diferença entre adsorção e absorção é que o primeiro processo apenas fixa uma substância na sua superfície, já no segundo o material é transferido de uma fase para outra.  e) ERRADA. O nitrogênio presente no ar é muito estável e pouco reativo quimicamente devido à ligação tripla que une a molécula.  Vale lembrar que é preciso ter cuidado ao manusear o hidróxido de sódio, usando sempre luvas, pois o contato com a pele pode causar queimaduras severas.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49cf86891a2396157649c"
+  },
+  "idArea": "629ff2ae886e923711b193f3",
+  "idDificuldade": "62a32e2984a9536ace6c0b94",
+  "pergunta": "(Enem/2013) O contribuinte que vende mais de R$ 20 mil de ações em Bolsa de Valores em um mês deverá pagar Imposto de Renda. O pagamento para a Receita Federal consistirá em 15% do lucro obtido com a venda das ações.  Disponível em: www1.folha.uol.com.br. Acesso em: 26 abr. 2010 (adaptado).  Um contribuinte que vende por R$ 34 mil um lote de ações que custou R$ 26 mil terá de pagar de Imposto de Renda à Receita Federal o valor de",
+  "explicacao": "Alternativa correta: b) R$ 1 200,00.  Como o imposto deverá ser pago em cima do lucro, então precisamos descobrir qual foi esse valor. Para isso, basta diminuir o valor da venda pelo valor da compra, isto é:  Lucro = 34 000 - 26 000 = 8 000  Agora temos que encontrar 15% deste valor, que será igual ao imposto que o contribuinte deverá pagar:  Imposto = 15% . 8 000=15/100.8000= 1200",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49d1b6891a2396157649d"
+  },
+  "idArea": "629ff2ae886e923711b193f3",
+  "idDificuldade": "62a32e2c84a9536ace6c0b95",
+  "pergunta": "(Enem/2015) Um arquiteto está reformando uma casa. De modo a contribuir com o meio ambiente, decide reaproveitar tábuas de madeira retiradas da casa. Ele dispõe de 40 tábuas de 540 cm, 30 de 810 cm e 10 de 1 080 cm, todas de mesma largura e espessura. Ele pediu a um carpinteiro que cortasse as tábuas em pedaços de mesmo comprimento, sem deixar sobras, e de modo que as novas peças ficassem com o maior tamanho possível, mas de comprimento menor que 2 m.  Atendendo o pedido do arquiteto, o carpinteiro deverá produzir",
+  "explicacao": "Alternativa correta: e) 420 peças.  Como é pedido que as peças tenham o mesmo comprimento e o maior tamanho possível, vamos calcular o mdc (máximo divisor comum).  Note que esse resultado está em centímetros e temos que passar para metro. Sendo assim, o resultado é 2,70 m.  Entretanto, o valor encontrado não poderá ser usado, pois existe a restrição do comprimento ser menor que 2 m.  Assim, vamos dividir 2,7 por 2, visto que desta forma o valor encontrado também será um divisor comum de 540, 810 e 1 080, já que o 2 é o menor fator primo em comum entre esses números.  Então, o comprimento de cada peça será igual a 1,35 m (2,7 : 2). Agora, precisamos calcular quantas peças teremos de cada tábua. Para isso, passamos cada medida para metros. Assim, temos:  5,40 : 1,35 = 4 peças 8,10 : 1,35 = 6 peças 10,80 : 1,35 = 8 peças  Considerando a quantidade de cada tábua e somando, temos:  40 . 4 + 30 . 6 + 10 . 8 = 160 + 180 + 80 = 420 peças",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a49d3a6891a2396157649e"
+  },
+  "idArea": "629ff2ae886e923711b193f3",
+  "idDificuldade": "62a32e2484a9536ace6c0b93",
+  "pergunta": "(Enem/2017) Em um teleférico turístico, bondinhos saem de estações ao nível do mar e do topo de uma montanha. A travessia dura 1,5 minuto e ambos os bondinhos se deslocam à mesma velocidade, Quarenta segundos após o bondinho A partir da estação ao nível do mar, ele cruza com o bondinho B, que havia saído do topo da montanha.  Quantos segundos após a partida do bondinho B partiu o bondinho A?",
+  "explicacao": "Alternativa correta: b) 10.  O tempo de travessia dos bondinhos dura 1,5 minutos, que é o mesmo que 90 segundos.  Se o bondinho A encontrou com o bondinho B 40 segundos após sua saída, o bondinho B já estava descendo a 50 segundos (90 - 40 = 50).  Como queremos saber quantos segundos antes o bondinho B saiu, então encontramos 50 - 40 = 10 segundos.",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+},{
+  "_id": {
+    "$oid": "62a4bca406159024d9bdacce"
+  },
+  "idArea": "629ff8bb886e923711b193f6",
+  "idDificuldade": "62a32e2c84a9536ace6c0b95",
+  "pergunta": "teste",
+  "explicacao": "teste",
+  "status": true,
+  "_class": "com.br.resistenem.model.Questao"
+}]

@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "629ff2ae886e923711b193f3"
   },
-  "area": "Matemática",
+  "area": "Matemática e suas Tecnologias",
   "status": true,
   "_class": "com.br.resistenem.model.Area"
 },{
@@ -17,13 +17,6 @@
     "$oid": "629ff8bb886e923711b193f6"
   },
   "area": "Linguagens, Códigos e suas Tecnologias",
-  "status": true,
-  "_class": "com.br.resistenem.model.Area"
-},{
-  "_id": {
-    "$oid": "62b0b0a550f83952e1904923"
-  },
-  "area": "Matemática1",
   "status": true,
   "_class": "com.br.resistenem.model.Area"
 }]

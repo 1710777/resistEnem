@@ -6,13 +6,9 @@ import org.springframework.lang.NonNull;
 public class Administrador {
 	@Id
 	public String id;
-	@NonNull
 	public String nome;
-	@NonNull
 	public String email;
-	@NonNull
 	public String usuario;
-	@NonNull
 	public String senha;
 	@NonNull
 	public Boolean status;
@@ -54,16 +50,16 @@ public class Administrador {
 		this.usuario = usuario;
 	}
 
+	public Boolean getStatus() {
+		return status;
+	}
+
 	public String getSenha() {
 		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public Boolean getStatus() {
-		return status;
 	}
 
 	public void setStatus(Boolean status) {

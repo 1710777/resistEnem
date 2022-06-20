@@ -14,17 +14,17 @@
 
 </head>
 <body>
-<span th:text="${Header}"></span>
- <nav>
-   <div class="nav-wrapper black">
-     <a class="brand-logo right white" href="https://resistenem.com.br/" target="_blank"><img src="/images/resistenem.png" border=0 /></a>
-     <ul id="nav-mobile" class="gray left hide-on-med-and-down" th:if="${Header == true}">
-       <li><a href="/administrador/administradores">Administradores</a></li>
-       <li><a href="/area/areas">Area</a></li>
-       <li><a href="/dificuldade/dificuldades">Dificuldade</a></li>
-       <li><a href="/questao/questoes">Questão</a></li>
-       <li><a href="/tipoSimulado/TipoSimulados">Tipo Simulados</a></li>
-     </ul>
-   </div>
- </nav>
-        
+  <nav>
+    <div class="nav-wrapper black">
+      <a class="brand-logo right white" href="https://univesp.br/"><img src="/images/resistenem.png" border=0 /></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down" th:if="${session.isLogado}">
+        <li><a href="/administrador/administradores">Administradores</a></li>
+        <li><a href="/area/areas">Area</a></li>
+        <li><a href="/dificuldade/dificuldades">Dificuldade</a></li>
+		<li><a href="/questao/questoes">Questao</a></li>
+		<li><a href="/administrador/logoff">LogOff</a></li>
+
+		<li th:text="'Olá '+ ${session.ADM.nome}"></li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,34 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Cadastro de Dificuldade</a>
+	</div>
+	<h3><a href="/dificuldade/dificuldades" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Dificuldades</a></h3>
+	<div class="row">
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form method="post" class="container">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Dificuldade" name="dificuldade" type="text" >
+          <label for="area">Dificuldade</label>
+        </div>
+        <div class="input-field col s6">
+	  	    <p>
+			    <label>
+			      <input class="with-gap" name="status" type="radio" value="1" checked />
+			      <span>Ativado</span>
+			    </label>
+			    <label>
+			      <input class="with-gap" name="status" type="radio" value="0" />
+			      <span>Desativado</span>
+			    </label>
+			</p>
+        </div>
+      </div>
+	  <button class="btn waves-effect waves-light black right" type="submit" name="action">Cadastrar Dificuldade
+	    <i class="material-icons right">send</i>
+	  </button>
+	</form>
+	</div>
+</div>	
+<th:block th:include="footer"></th:block>

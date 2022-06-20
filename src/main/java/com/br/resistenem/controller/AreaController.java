@@ -1,5 +1,7 @@
 package com.br.resistenem.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,10 +52,13 @@ public class AreaController {
 		return "redirect:/area/editarArea/"+area.getId();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping("/area/areas")
-	public ModelAndView listaArea() {
+	public ModelAndView listaArea(final HttpServletRequest request) {
 		ModelAndView mvArea = new ModelAndView("area/area");
 		Iterable<Area> areas = ar.findAll();
+		String value = request.getSession().getAttribute("Header").toString();		
+		mvArea.addObject("Header", value);
 		mvArea.addObject("Areas", areas);
 		mvArea.addObject("Header", true);
 

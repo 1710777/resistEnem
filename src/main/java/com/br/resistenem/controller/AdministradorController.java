@@ -1,7 +1,10 @@
 package com.br.resistenem.controller;
 
+import javax.servlet.ServletException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,5 +82,37 @@ public class AdministradorController {
 		administradorNew.setStatus(true);
 		admr.save(administradorNew);
 		return "redirect:/administrador/administradores";
+	}
+	
+	@RequestMapping(value="/efetuarLogin", method=RequestMethod.POST)
+	public String efetuarLogin(Administrador administrador, RedirectAttributes attibutes){
+		if (administrador.getUsuario() == null){
+			Administrador administradorNew = admr.findByEmail(administrador.getEmail());
+			if(administradorNew == null) {
+				attibutes.addFlashAttribute("menssagem", "Usuário não encontrado!");
+				attibutes.addFlashAttribute("error", true);
+				return "redirect:/";
+			}else if (administrador.getEmail() == null){
+				attibutes.addFlashAttribute("menssagem", "Email não informado!");
+				attibutes.addFlashAttribute("error", true);
+				return "redirect:/";
+			}else if (administrador.getSenha() == null){
+				attibutes.addFlashAttribute("menssagem", "Senha não informada!");
+				attibutes.addFlashAttribute("error", true);
+				return "redirect:/";
+			}else if (!administrador.getEmail().equals(administradorNew.getEmail())){
+				attibutes.addFlashAttribute("menssagem", "Email informado incorreto!");
+				attibutes.addFlashAttribute("error", true);
+				return "redirect:/";
+			}else if (!administrador.getSenha().equals(administradorNew.getSenha())){
+				attibutes.addFlashAttribute("menssagem", "Senha informada incorreta!");
+				attibutes.addFlashAttribute("error", true);
+				return "redirect:/";
+			}else {
+				attibutes.addFlashAttribute("error", false);
+				return "redirect:/administrador/administradores";
+			}
+		}
+		return "redirect:/";
 	}
 }

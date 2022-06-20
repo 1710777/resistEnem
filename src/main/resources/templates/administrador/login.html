@@ -1,0 +1,23 @@
+	
+	<div class="collection">
+	  <a class="collection-item active red">LOGIN</a>
+	</div>
+	<div class="row">
+	<th:block th:include="mensagemValidacao"></th:block>
+	<form method="post" class="container" action="efetuarLogin">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Email" name="email" type="text">
+          <label for="email">E-Mail</label>
+        </div>
+        <div class="input-field col s12">
+          <input placeholder="Senha" name="senha" type="text">
+          <label for="senha">Senha</label>
+        </div>
+      </div>
+	  <button class="btn waves-effect waves-light black right" type="submit" name="action">Login
+	    <i class="material-icons right">send</i>
+	  </button>
+	</form>
+	</div>
+	

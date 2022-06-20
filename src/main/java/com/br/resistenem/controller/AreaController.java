@@ -1,5 +1,7 @@
 package com.br.resistenem.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,10 +20,15 @@ public class AreaController {
 	private AreaRepository ar;
 	
 	@RequestMapping(value="/area/insertArea", method=RequestMethod.GET)
-	public ModelAndView insertArea() {
-		ModelAndView mvArea = new ModelAndView("/area/insertArea");
-		mvArea.addObject("Header", true);
+	public ModelAndView insertArea(HttpSession session) {
+		ModelAndView mvArea = null;
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			mvArea = new ModelAndView("Administrador/Login");
+		}else {
+			mvArea = new ModelAndView("/area/insertArea");
+		}
 		return mvArea;
+
 	}
 	
 	@RequestMapping(value="/area/insertArea", method=RequestMethod.POST)
@@ -51,17 +58,24 @@ public class AreaController {
 	}
 	
 	@RequestMapping("/area/areas")
-	public ModelAndView listaArea() {
-		ModelAndView mvArea = new ModelAndView("area/area");
+	public ModelAndView listaArea(HttpSession session) {
+		ModelAndView mvArea = null;
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
+		mvArea = new ModelAndView("area/area");
 		Iterable<Area> areas = ar.findAll();
 		mvArea.addObject("Areas", areas);
-		mvArea.addObject("Header", true);
-
 		return mvArea;
 	}
 	
 	@RequestMapping(value="/area/editarArea/{id}", method=RequestMethod.GET)
-	public ModelAndView editarArea(@PathVariable("id") String id) {
+	public ModelAndView editarArea(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		Area area = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
 		mvArea.addObject("Area", area);
@@ -70,7 +84,10 @@ public class AreaController {
 	}
 	
 	@RequestMapping("/area/excluirArea/{id}")
-	public String excluirArea(@PathVariable("id") String id) {
+	public String excluirArea(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Area areaNew = ar.findAllById(id);
 		areaNew.setStatus(false);
 		ar.save(areaNew);
@@ -78,7 +95,10 @@ public class AreaController {
 	}
 	
 	@RequestMapping("/area/publicarArea/{id}")
-	public String publicarArea(@PathVariable("id") String id) {
+	public String publicarArea(@PathVariable("id") String id, HttpSession session) {
+		if ("false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		Area areaNew = ar.findAllById(id);
 		areaNew.setStatus(true);
 		ar.save(areaNew);

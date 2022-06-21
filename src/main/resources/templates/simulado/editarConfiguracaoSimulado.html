@@ -4,7 +4,7 @@
 	  <a class="collection-item active red">Editar Configuração do Tipo de Simulado</a>
 	</div>
 	<div class="row">
-		<h3><a href="/tipoSimulado/TipoSimulados" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo de Simulados</a></h3>
+		<h3><a th:href="${#mvc.url('TSC#insertConfigSimulado').arg(0, Simulado.fkIdTipoSimulado).build()}" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo de Simulados</a></h3>
 		<th:block th:include="mensagemValidacao"></th:block>
 		<form method="post" action="/simulado/updateConfigSimulado" class="container">
 		     <input name="id" type="hidden" th:value="${Simulado.id}">
@@ -18,7 +18,8 @@
 		      	<div class="input-field col s6">
 					<label>Dificuldade</label><br><br>
 		   			<select name="fkIdDificuldade" class="browser-default">
-					    <option th:each="dificuldade : ${Simulado.dificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}"></option>
+		   				<option value="0">Selecione a Dificuldade</option>
+					    <option th:each="dificuldade : ${Simulado.dificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}" th:selected="${dificuldade.id==dificuldade.id}"></option>
 					</select>		
 				</div><br><br>
 		        <div class="input-field col s3">
@@ -26,7 +27,7 @@
 		          <label for="tipoSimulado">Quantidade</label>
 		        </div>
 		      </div>
-			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Cadastrar Configuração Tipo Simulado
+			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Alterar Configuração Tipo Simulado
 			    <i class="material-icons right">send</i>
 			  </button>
 		</form>

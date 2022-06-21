@@ -32,7 +32,7 @@ public class ConfiguracaoSimuladoController {
 
 	@RequestMapping(value="/simulado/insertConfigSimulado", method=RequestMethod.POST)
 	public String insertConfigSimulado(ConfiguracaoSimulado configuracaoSimulado, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		if ("".equals(configuracaoSimulado.getFkIdDificuldade()) || "".equals(configuracaoSimulado.getFkIdTipoSimulado()) || "".equals(configuracaoSimulado.getQuantidade())) {
@@ -40,6 +40,12 @@ public class ConfiguracaoSimuladoController {
 			attibutes.addFlashAttribute("error", true);
 			return "redirect:/tipoSimulado/configuraSimulado/"+configuracaoSimulado.getFkIdTipoSimulado();
 		}
+		ConfiguracaoSimulado conf = csr.findByFkIdDificuldadeAndFkIdTipoSimulado(configuracaoSimulado.getFkIdDificuldade(),configuracaoSimulado.getFkIdTipoSimulado());
+		if(conf != null && conf.getId() != null) {
+			attibutes.addFlashAttribute("menssagem", "Ja existe um registro pra esta dificuldade e tipo de simulado!");
+			attibutes.addFlashAttribute("error", true);
+			return "redirect:/tipoSimulado/insertConfigSimulado/"+configuracaoSimulado.getFkIdTipoSimulado();			
+		} 
 		TipoSimulado tipo =  tr.findTipoSimuladoById(configuracaoSimulado.getFkIdTipoSimulado());
 		Dificuldades dificuldade = dr.findDificuldadesById(configuracaoSimulado.getFkIdDificuldade());
 		configuracaoSimulado.setTipoSimulado(tipo);

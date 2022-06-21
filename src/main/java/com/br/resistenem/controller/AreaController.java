@@ -23,7 +23,7 @@ public class AreaController {
 	@RequestMapping(value="/area/insertArea", method=RequestMethod.GET)
 	public ModelAndView insertArea(HttpSession session) {
 		ModelAndView mvArea = null;
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			mvArea = new ModelAndView("Administrador/Login");
 		}else {
 			mvArea = new ModelAndView("/area/insertArea");
@@ -61,7 +61,7 @@ public class AreaController {
 	@RequestMapping("/area/areas")
 	public ModelAndView listaArea(HttpSession session) {
 		ModelAndView mvArea = null;
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			mvArea = new ModelAndView("Administrador/Login");
 			return mvArea;
 		}
@@ -73,7 +73,7 @@ public class AreaController {
 	
 	@RequestMapping(value="/area/editarArea/{id}", method=RequestMethod.GET)
 	public ModelAndView editarArea(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvArea = new ModelAndView("Administrador/Login");
 			return mvArea;
 		}
@@ -85,7 +85,7 @@ public class AreaController {
 	
 	@RequestMapping("/area/excluirArea/{id}")
 	public String excluirArea(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Area areaNew = ar.findAllById(id);
@@ -96,7 +96,7 @@ public class AreaController {
 	
 	@RequestMapping("/area/publicarArea/{id}")
 	public String publicarArea(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Area areaNew = ar.findAllById(id);

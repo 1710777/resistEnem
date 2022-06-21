@@ -21,7 +21,7 @@ public class AlternativaController {
 
 	@RequestMapping(value="/alternativa/insertAlternativa", method=RequestMethod.POST)
 	public String insertAlternativa(Alternativa alternativa, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		if ("".equals(alternativa.getAlternativa()) || "".equals(alternativa.getIdQuestao())) {
@@ -37,7 +37,7 @@ public class AlternativaController {
 	
 	@RequestMapping(value="/alternativa/updateAlternativa", method=RequestMethod.POST)
 	public String updateAlternativa(Alternativa alternativa, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		if ("".equals(alternativa.getAlternativa()) || "".equals(alternativa.getIdQuestao())) {
@@ -53,7 +53,7 @@ public class AlternativaController {
 	
 	@RequestMapping(value="/alternativa/editarAlternativa/{id}", method=RequestMethod.GET)
 	public String editarAlternativa(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		return "redirect:/questao/editarAlternativa/"+id;
@@ -62,7 +62,7 @@ public class AlternativaController {
 	
 	@RequestMapping("/alternativa/excluirAlternativa/{id}")
 	public String excluirAlternativa(@PathVariable("id") String id, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Alternativa alternativa = ar.findAllById(id);

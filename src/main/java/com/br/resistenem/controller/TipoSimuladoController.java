@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.br.resistenem.model.Alternativa;
 import com.br.resistenem.model.ConfiguracaoSimulado;
 import com.br.resistenem.model.Dificuldades;
-import com.br.resistenem.model.Questao;
 import com.br.resistenem.model.TipoSimulado;
 import com.br.resistenem.repository.ConfiguracaoSimuladoRepository;
 import com.br.resistenem.repository.DificuldadesRepository;
@@ -128,7 +126,7 @@ public class TipoSimuladoController {
 		TipoSimulado tipoSimulado = tr.findAllById(id);
 		ModelAndView mvConfiguracaoSimulado = new ModelAndView("/simulado/insertConfiguracaoSimulado");
 		mvConfiguracaoSimulado.addObject("TipoSimulado", tipoSimulado);
-		List<Dificuldades> dificuldades = dr.findAll();
+		List<Dificuldades> dificuldades = dr.findByStatus(true);
 		mvConfiguracaoSimulado.addObject("Dificuldades", dificuldades);
 		List<ConfiguracaoSimulado> configSimulado = csr.findAll();
 		

@@ -40,9 +40,9 @@ public class QuestaoController {
 			return mvArea;
 		}
 		Questao questao = new Questao();
-		List<Area> areas = ar.findAll();
+		List<Area> areas = ar.findByStatus(true);
 		questao.setAreas(areas);
-		List<Dificuldades> dificuldades = dr.findAll();
+		List<Dificuldades> dificuldades = dr.findByStatus(true);
 		questao.setListaDificuldades(dificuldades);
 		ModelAndView mvQuestao = new ModelAndView("questao/insertQuestao");
 		mvQuestao.addObject("Questao", questao);
@@ -107,9 +107,9 @@ public class QuestaoController {
 			return mvArea;
 		}
 		Questao questao = qr.findAllById(id);
-		List<Area> areas = ar.findAll();
+		List<Area> areas = ar.findByStatus(true);
 		questao.setAreas(areas);
-		List<Dificuldades> dificuldades = dr.findAll();
+		List<Dificuldades> dificuldades = dr.findByStatus(true);
 		questao.setListaDificuldades(dificuldades);
 		ModelAndView mvQuestao = new ModelAndView("questao/editQuestao");
 		mvQuestao.addObject("Questao", questao);

@@ -10,21 +10,17 @@
 		     <input name="id" type="hidden" th:value="${Simulado.id}">
 		
 			<div class="row">
-		      	<div class="input-field col s3">
-					<label>Tipo Simulado</label><br><br>
+		      	<div class="input-field col s4">
 					<input name="fkIdTipoSimulado" type="hidden" th:value="${Simulado.fkIdTipoSimulado}">
 		   			<span th:text="${Simulado.tipoSimulado.tipoSimulado}"></span>
 				</div>
-		      	<div class="input-field col s6">
-					<label>Dificuldade</label><br><br>
-		   			<select name="fkIdDificuldade" class="browser-default">
-		   				<option value="0">Selecione a Dificuldade</option>
-					    <option th:each="dificuldade : ${Simulado.dificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}" th:selected="${dificuldade.id==dificuldade.id}"></option>
-					</select>		
-				</div><br><br>
-		        <div class="input-field col s3">
+		      	<div class="input-field col s3">
+					<input name="fkIdDificuldade" type="hidden" th:value="${Simulado.fkIdDificuldade}">
+					<span name="dificuldade"  th:text="${Simulado.dificuldades.dificuldade}"></span>	
+				</div>
+		        <div class="input-field col s5">
 		          <input placeholder="Quantidade" name="quantidade" type="text" th:value="${Simulado.quantidade}">
-		          <label for="tipoSimulado">Quantidade</label>
+		          <label for="quantidade">Quantidade</label>
 		        </div>
 		      </div>
 			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Alterar Configuração Tipo Simulado

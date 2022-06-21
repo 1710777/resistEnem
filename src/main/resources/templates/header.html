@@ -24,7 +24,7 @@
 		<li><a href="/questao/questoes">Questao</a></li>
 		<li><a href="/tipoSimulado/TipoSimulados">Tipo Simulado</a></li>
 		<li><a href="/administrador/logoff">LogOff</a></li>
-		<li><span th:text="'OLÁ, '+ ${session.ADM.nome}"></span></li>
+		<li th:if=${session.ADM}><span th:text="'OLÁ, '+ ${session.ADM.nome}"></span></li>
       </ul>
     </div>
   </nav>

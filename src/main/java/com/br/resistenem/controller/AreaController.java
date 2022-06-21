@@ -1,5 +1,6 @@
 package com.br.resistenem.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +80,6 @@ public class AreaController {
 		Area area = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
 		mvArea.addObject("Area", area);
-		mvArea.addObject("Header", true);
 		return mvArea;
 	}
 	

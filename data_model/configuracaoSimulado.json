@@ -1,0 +1,111 @@
+[{
+  "_id": {
+    "$oid": "62b11f5525091b125ef2a005"
+  },
+  "fkIdTipoSimulado": "62aa299e0cc7bb7f3535cf48",
+  "fkIdDificuldade": "62a32e2984a9536ace6c0b94",
+  "quantidade": 7,
+  "dificuldades": {
+    "_id": {
+      "$oid": "62a32e2984a9536ace6c0b94"
+    },
+    "dificuldade": "Media",
+    "status": true
+  },
+  "tipoSimulado": {
+    "_id": {
+      "$oid": "62aa299e0cc7bb7f3535cf48"
+    },
+    "tipoSimulado": "Área do Conhecimento",
+    "status": true
+  },
+  "_class": "com.br.resistenem.model.ConfiguracaoSimulado"
+},{
+  "_id": {
+    "$oid": "62b11f5f25091b125ef2a006"
+  },
+  "fkIdTipoSimulado": "62aa299e0cc7bb7f3535cf48",
+  "fkIdDificuldade": "62a32e2c84a9536ace6c0b95",
+  "quantidade": 6,
+  "dificuldades": {
+    "_id": {
+      "$oid": "62a32e2c84a9536ace6c0b95"
+    },
+    "dificuldade": "Difícil",
+    "status": true
+  },
+  "tipoSimulado": {
+    "_id": {
+      "$oid": "62aa299e0cc7bb7f3535cf48"
+    },
+    "tipoSimulado": "Área do Conhecimento",
+    "status": true
+  },
+  "_class": "com.br.resistenem.model.ConfiguracaoSimulado"
+},{
+  "_id": {
+    "$oid": "62b11f7225091b125ef2a007"
+  },
+  "fkIdTipoSimulado": "62aa2c2c94a10c259f234772",
+  "fkIdDificuldade": "62a32e2484a9536ace6c0b93",
+  "quantidade": 2,
+  "dificuldades": {
+    "_id": {
+      "$oid": "62a32e2484a9536ace6c0b93"
+    },
+    "dificuldade": "Fácil",
+    "status": true
+  },
+  "tipoSimulado": {
+    "_id": {
+      "$oid": "62aa2c2c94a10c259f234772"
+    },
+    "tipoSimulado": "Dia do ENEM",
+    "status": true
+  },
+  "_class": "com.br.resistenem.model.ConfiguracaoSimulado"
+},{
+  "_id": {
+    "$oid": "62b11f7a25091b125ef2a008"
+  },
+  "fkIdTipoSimulado": "62aa2c2c94a10c259f234772",
+  "fkIdDificuldade": "62a32e2984a9536ace6c0b94",
+  "quantidade": 5,
+  "dificuldades": {
+    "_id": {
+      "$oid": "62a32e2984a9536ace6c0b94"
+    },
+    "dificuldade": "Media",
+    "status": true
+  },
+  "tipoSimulado": {
+    "_id": {
+      "$oid": "62aa2c2c94a10c259f234772"
+    },
+    "tipoSimulado": "Dia do ENEM",
+    "status": true
+  },
+  "_class": "com.br.resistenem.model.ConfiguracaoSimulado"
+},{
+  "_id": {
+    "$oid": "62b11f8025091b125ef2a009"
+  },
+  "fkIdTipoSimulado": "62aa2c2c94a10c259f234772",
+  "fkIdDificuldade": "62a32e2c84a9536ace6c0b95",
+  "quantidade": 6,
+  "dificuldades": {
+    "_id": {
+      "$oid": "62a32e2c84a9536ace6c0b95"
+    },
+    "dificuldade": "Difícil",
+    "status": true
+  },
+  "tipoSimulado": {
+    "_id": {
+      "$oid": "62aa2c2c94a10c259f234772"
+    },
+    "tipoSimulado": "Dia do ENEM",
+    "status": true
+  },
+  "_class": "com.br.resistenem.model.ConfiguracaoSimulado"
+}]

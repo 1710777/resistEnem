@@ -1,0 +1,35 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Editar Configuração do Tipo de Simulado</a>
+	</div>
+	<div class="row">
+		<h3><a href="/tipoSimulado/TipoSimulados" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo de Simulados</a></h3>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form method="post" action="/simulado/updateConfigSimulado" class="container">
+		     <input name="id" type="hidden" th:value="${Simulado.id}">
+		
+			<div class="row">
+		      	<div class="input-field col s3">
+					<label>Tipo Simulado</label><br><br>
+					<input name="fkIdTipoSimulado" type="hidden" th:value="${Simulado.fkIdTipoSimulado}">
+		   			<span th:text="${Simulado.tipoSimulado.tipoSimulado}"></span>
+				</div>
+		      	<div class="input-field col s6">
+					<label>Dificuldade</label><br><br>
+		   			<select name="fkIdDificuldade" class="browser-default">
+					    <option th:each="dificuldade : ${Simulado.dificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}"></option>
+					</select>		
+				</div><br><br>
+		        <div class="input-field col s3">
+		          <input placeholder="Quantidade" name="quantidade" type="text" th:value="${Simulado.quantidade}">
+		          <label for="tipoSimulado">Quantidade</label>
+		        </div>
+		      </div>
+			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Cadastrar Configuração Tipo Simulado
+			    <i class="material-icons right">send</i>
+			  </button>
+		</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

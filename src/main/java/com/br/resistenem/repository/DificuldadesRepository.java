@@ -10,4 +10,6 @@ import com.br.resistenem.model.Dificuldades;
 public interface DificuldadesRepository extends MongoRepository<Dificuldades, String> {
 	Dificuldades findAllById(String id);
 	Dificuldades findDificuldadesById(String fkIdDificuldade);
+	List<Dificuldades> findByStatus(boolean b);
+	Dificuldades findObjectByStatus(boolean b);
 }

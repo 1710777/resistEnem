@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.br.resistenem.model.Alternativa;
 import com.br.resistenem.model.ConfiguracaoSimulado;
 import com.br.resistenem.model.Dificuldades;
-import com.br.resistenem.model.Questao;
 import com.br.resistenem.model.TipoSimulado;
 import com.br.resistenem.repository.ConfiguracaoSimuladoRepository;
 import com.br.resistenem.repository.DificuldadesRepository;
@@ -32,13 +30,20 @@ public class TipoSimuladoController {
 	private ConfiguracaoSimuladoRepository csr;
 	
 	@RequestMapping(value="/tipoSimulado/insertTipoSimulado", method=RequestMethod.GET)
-	public ModelAndView insertTipoSimulado() {
+	public ModelAndView insertTipoSimulado(HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		ModelAndView mvTipoSimulado = new ModelAndView("/tipoSimulado/insertTipoSimulado");
 		return mvTipoSimulado;
 	}
 	
 	@RequestMapping(value="/tipoSimulado/insertTipoSimulado", method=RequestMethod.POST)
-	public String insertTipoSimulado(TipoSimulado TipoSimulado, RedirectAttributes attibutes) {
+	public String insertTipoSimulado(TipoSimulado TipoSimulado, RedirectAttributes attibutes, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(TipoSimulado.getTipoSimulado())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -51,7 +56,10 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping(value="/tipoSimulado/updateTipoSimulado", method=RequestMethod.POST)
-	public String updateTipoSimulado(TipoSimulado TipoSimulado, RedirectAttributes attibutes) {
+	public String updateTipoSimulado(TipoSimulado TipoSimulado, RedirectAttributes attibutes, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(TipoSimulado.getTipoSimulado())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -64,7 +72,11 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping("/tipoSimulado/TipoSimulados")
-	public ModelAndView listaTipoSimulado() {
+	public ModelAndView listaTipoSimulado(HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		ModelAndView mvTipoSimulado = new ModelAndView("tipoSimulado/TipoSimulados");
 		Iterable<TipoSimulado> TipoSimulados = tr.findAll();
 		mvTipoSimulado.addObject("TipoSimulados", TipoSimulados);
@@ -72,7 +84,11 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping(value="/tipoSimulado/editarTipoSimulado/{id}", method=RequestMethod.GET)
-	public ModelAndView editarTipoSimulado(@PathVariable("id") String id) {
+	public ModelAndView editarTipoSimulado(@PathVariable("id") String id, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		TipoSimulado TipoSimulado = tr.findAllById(id);
 		ModelAndView mvTipoSimulado = new ModelAndView("tipoSimulado/editarTipoSimulado");
 		mvTipoSimulado.addObject("TipoSimulado", TipoSimulado);
@@ -80,7 +96,10 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping("/tipoSimulado/excluirTipoSimulado/{id}")
-	public String excluirTipoSimulado(@PathVariable("id") String id) {
+	public String excluirTipoSimulado(@PathVariable("id") String id, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		TipoSimulado TipoSimuladoNew = tr.findAllById(id);
 		TipoSimuladoNew.setStatus(false);
 		tr.save(TipoSimuladoNew);
@@ -88,7 +107,10 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping("/tipoSimulado/publicarTipoSimulado/{id}")
-	public String publicarTipoSimulado(@PathVariable("id") String id) {
+	public String publicarTipoSimulado(@PathVariable("id") String id, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		TipoSimulado TipoSimuladoNew = tr.findAllById(id);
 		TipoSimuladoNew.setStatus(true);
 		tr.save(TipoSimuladoNew);
@@ -97,10 +119,14 @@ public class TipoSimuladoController {
 	
 	@RequestMapping(value="/tipoSimulado/insertConfigSimulado/{id}", method=RequestMethod.GET)
 	public ModelAndView insertConfigSimulado(@PathVariable("id") String id, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			ModelAndView mvArea = new ModelAndView("Administrador/Login");
+			return mvArea;
+		}
 		TipoSimulado tipoSimulado = tr.findAllById(id);
 		ModelAndView mvConfiguracaoSimulado = new ModelAndView("/simulado/insertConfiguracaoSimulado");
 		mvConfiguracaoSimulado.addObject("TipoSimulado", tipoSimulado);
-		List<Dificuldades> dificuldades = dr.findAll();
+		List<Dificuldades> dificuldades = dr.findByStatus(true);
 		mvConfiguracaoSimulado.addObject("Dificuldades", dificuldades);
 		List<ConfiguracaoSimulado> configSimulado = csr.findAll();
 		

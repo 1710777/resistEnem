@@ -16,7 +16,7 @@
 <body>
   <nav>
     <div class="nav-wrapper black">
-      <a class="brand-logo right white" href="https://univesp.br/"><img src="/images/resistenem.png" border=0 /></a>
+      <a class="brand-logo right white" href="/administrador/home"><img src="/images/resistenem.png" width="250" height="68" border=0 /></a>
       <ul id="nav-mobile"  th:if="${session.isLogado}">
         <li><a href="/administrador/administradores">Administradores</a></li>
         <li><a href="/area/areas">Area</a></li>
@@ -24,7 +24,7 @@
 		<li><a href="/questao/questoes">Questao</a></li>
 		<li><a href="/tipoSimulado/TipoSimulados">Tipo Simulado</a></li>
 		<li><a href="/administrador/logoff">LogOff</a></li>
-		
+		<li th:if=${session.ADM}><span th:text="'OLÁ, '+ ${session.ADM.nome}"></span></li>
       </ul>
     </div>
   </nav>

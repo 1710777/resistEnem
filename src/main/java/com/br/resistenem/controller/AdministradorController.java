@@ -22,11 +22,12 @@ public class AdministradorController {
 	
 	@RequestMapping(value="/administrador/insertAdministrador", method=RequestMethod.GET)
 	public String insertArea(HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "/administrador/insertAdministrador";		
 		}else {
 			return "redirect:/";
 		}
+		
 	}
 	
 	@RequestMapping(value="/administrador/insertAdministrador", method=RequestMethod.POST)
@@ -57,7 +58,7 @@ public class AdministradorController {
 	
 	@RequestMapping("/administrador/administradores")
 	public ModelAndView administradores(HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvadministrador = new ModelAndView("Administrador/Login");
 			return mvadministrador;
 		}
@@ -70,7 +71,7 @@ public class AdministradorController {
 	
 	@RequestMapping(value="/administrador/editarAdministrador/{id}", method=RequestMethod.GET)
 	public ModelAndView editarAdministrador(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvadministrador = new ModelAndView("Administrador/Login");
 			return mvadministrador;
 		}
@@ -82,7 +83,7 @@ public class AdministradorController {
 	
 	@RequestMapping("/administrador/excluirAdministrador/{id}")
 	public String excluirAdministrador(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Administrador administradorNew = admr.findAllById(id);
@@ -93,7 +94,7 @@ public class AdministradorController {
 	
 	@RequestMapping("/administrador/publicarAdministrador/{id}")
 	public String publicarAdministrador(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Administrador administradorNew = admr.findAllById(id);
@@ -107,6 +108,12 @@ public class AdministradorController {
 		session.setAttribute("ADM", null);
 		session.setAttribute("isLogado", null);
 		return "redirect:/";
+	}
+
+	@RequestMapping("/administrador/home")
+	public ModelAndView home(HttpSession session) {
+		ModelAndView mvadministrador = new ModelAndView("/home");
+		return mvadministrador;
 	}
 	
 	@RequestMapping(value="/administrador/efetuarLogin", method=RequestMethod.POST)
@@ -142,7 +149,7 @@ public class AdministradorController {
 				session.setAttribute("ADM", administradorNew);
 				session.setAttribute("isLogado", true);
 				attibutes.addFlashAttribute("error", false);
-				return "redirect:/administrador/administradores";
+				return "redirect:/administrador/home";
 			}
 		}
 		return "redirect:/";

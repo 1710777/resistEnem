@@ -21,7 +21,7 @@ public class DificuldadesController {
 	
 	@RequestMapping(value="/dificuldade/insertDificuldade", method=RequestMethod.GET)
 	public String cadastrarDificuldades(HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		return "/dificuldades/insertDificuldades";
@@ -29,7 +29,7 @@ public class DificuldadesController {
 	
 	@RequestMapping(value="/dificuldade/insertDificuldade", method=RequestMethod.POST)
 	public String insertDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		if ("".equals(Dificuldades.getDificuldade())) {
@@ -45,7 +45,7 @@ public class DificuldadesController {
 	
 	@RequestMapping(value="/dificuldade/updateDificuldades", method=RequestMethod.POST)
 	public String updateDificuldades(Dificuldades Dificuldades, RedirectAttributes attibutes, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		if ("".equals(Dificuldades.getDificuldade())) {
@@ -61,7 +61,7 @@ public class DificuldadesController {
 	
 	@RequestMapping("/dificuldade/dificuldades")
 	public ModelAndView listaDificuldades(HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvArea = new ModelAndView("Administrador/Login");
 			return mvArea;
 		}
@@ -73,7 +73,7 @@ public class DificuldadesController {
 	
 	@RequestMapping("/dificuldade/editarDificuldades/{id}")
 	public ModelAndView editarDificuldades(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvArea = new ModelAndView("Administrador/Login");
 			return mvArea;
 		}
@@ -85,7 +85,7 @@ public class DificuldadesController {
 	
 	@RequestMapping("/dificuldade/excluirDificuldades/{id}")
 	public String excluirDificuldades(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Dificuldades DificuldadesNew = dr.findAllById(id);
@@ -96,7 +96,7 @@ public class DificuldadesController {
 	
 	@RequestMapping("publicarDificuldades/{id}")
 	public String publicarDificuldades(@PathVariable("id") String id, HttpSession session) {
-		if ("false".equals(session.getAttribute("isLogado").toString())) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
 		Dificuldades DificuldadesNew = dr.findAllById(id);

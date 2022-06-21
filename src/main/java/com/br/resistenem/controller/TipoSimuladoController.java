@@ -2,6 +2,8 @@ package com.br.resistenem.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,9 +13,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.resistenem.model.Alternativa;
+import com.br.resistenem.model.ConfiguracaoSimulado;
 import com.br.resistenem.model.Dificuldades;
 import com.br.resistenem.model.Questao;
 import com.br.resistenem.model.TipoSimulado;
+import com.br.resistenem.repository.ConfiguracaoSimuladoRepository;
 import com.br.resistenem.repository.DificuldadesRepository;
 import com.br.resistenem.repository.TipoSimuladoRepository;
 
@@ -24,11 +28,12 @@ public class TipoSimuladoController {
 	private TipoSimuladoRepository tr;
 	@Autowired
 	private DificuldadesRepository dr;
+	@Autowired
+	private ConfiguracaoSimuladoRepository csr;
 	
 	@RequestMapping(value="/tipoSimulado/insertTipoSimulado", method=RequestMethod.GET)
 	public ModelAndView insertTipoSimulado() {
 		ModelAndView mvTipoSimulado = new ModelAndView("/tipoSimulado/insertTipoSimulado");
-		mvTipoSimulado.addObject("Header", true);
 		return mvTipoSimulado;
 	}
 	
@@ -63,8 +68,6 @@ public class TipoSimuladoController {
 		ModelAndView mvTipoSimulado = new ModelAndView("tipoSimulado/TipoSimulados");
 		Iterable<TipoSimulado> TipoSimulados = tr.findAll();
 		mvTipoSimulado.addObject("TipoSimulados", TipoSimulados);
-		mvTipoSimulado.addObject("Header", true);
-
 		return mvTipoSimulado;
 	}
 	
@@ -73,7 +76,6 @@ public class TipoSimuladoController {
 		TipoSimulado TipoSimulado = tr.findAllById(id);
 		ModelAndView mvTipoSimulado = new ModelAndView("tipoSimulado/editarTipoSimulado");
 		mvTipoSimulado.addObject("TipoSimulado", TipoSimulado);
-		mvTipoSimulado.addObject("Header", true);
 		return mvTipoSimulado;
 	}
 	
@@ -93,14 +95,16 @@ public class TipoSimuladoController {
 		return "redirect:/tipoSimulado/TipoSimulados";
 	}
 	
-	@RequestMapping(value="/tipoSimulado/configuraSimulado/{id}", method=RequestMethod.GET)
-	public ModelAndView configuraSimulado(@PathVariable("id") String id) {
+	@RequestMapping(value="/tipoSimulado/insertConfigSimulado/{id}", method=RequestMethod.GET)
+	public ModelAndView insertConfigSimulado(@PathVariable("id") String id, HttpSession session) {
 		TipoSimulado tipoSimulado = tr.findAllById(id);
 		ModelAndView mvConfiguracaoSimulado = new ModelAndView("/simulado/insertConfiguracaoSimulado");
 		mvConfiguracaoSimulado.addObject("TipoSimulado", tipoSimulado);
 		List<Dificuldades> dificuldades = dr.findAll();
 		mvConfiguracaoSimulado.addObject("Dificuldades", dificuldades);
-		mvConfiguracaoSimulado.addObject("Header", true);
+		List<ConfiguracaoSimulado> configSimulado = csr.findAll();
+		
+		mvConfiguracaoSimulado.addObject("configSimulado", configSimulado);
 		return mvConfiguracaoSimulado;
 	}
 }

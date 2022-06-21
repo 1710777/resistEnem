@@ -68,8 +68,6 @@ public class DificuldadesController {
 		ModelAndView mvDificuldades = new ModelAndView("dificuldades/dificuldades");
 		Iterable<Dificuldades> Dificuldadess = dr.findAll();
 		mvDificuldades.addObject("Dificuldades", Dificuldadess);
-		mvDificuldades.addObject("Header", true);
-
 		return mvDificuldades;
 	}
 	
@@ -82,7 +80,6 @@ public class DificuldadesController {
 		Dificuldades Dificuldades = dr.findAllById(id);
 		ModelAndView mvDificuldades = new ModelAndView("Dificuldades/editDificuldades");
 		mvDificuldades.addObject("Dificuldades", Dificuldades);
-		mvDificuldades.addObject("Header", true);
 		return mvDificuldades;
 	}
 	

@@ -58,7 +58,6 @@ public class AreaController {
 		return "redirect:/area/editarArea/"+area.getId();
 	}
 	
-	@SuppressWarnings("deprecation")
 	@RequestMapping("/area/areas")
 	public ModelAndView listaArea(HttpSession session) {
 		ModelAndView mvArea = null;
@@ -81,7 +80,6 @@ public class AreaController {
 		Area area = ar.findAllById(id);
 		ModelAndView mvArea = new ModelAndView("area/editArea");
 		mvArea.addObject("Area", area);
-		mvArea.addObject("Header", true);
 		return mvArea;
 	}
 	

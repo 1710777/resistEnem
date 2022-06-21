@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.br.resistenem.model.Alternativa;
-import com.br.resistenem.model.Questao;
 
 public interface AlternativaRepository extends MongoRepository<Alternativa, String> {
 	Alternativa findAllById(String id);

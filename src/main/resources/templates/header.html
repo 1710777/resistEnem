@@ -16,7 +16,16 @@
 <body>
   <nav>
     <div class="nav-wrapper black">
-      <a class="brand-logo right white" href="/administrador/home"><img src="/images/resistenem.png" width="250" height="68" border=0 /></a>
+    
+	<c:choose>
+	  <c:when test="${session.isLogado}">
+	      <a class="brand-logo right white" href="/administrador/home"><img src="/images/resistenem.png" width="250" height="68" border=0 /></a>   
+	  </c:when>
+	  <c:otherwise>
+	      <a class="brand-logo right white"><img src="/images/resistenem.png" width="250" height="68" border=0 /></a>  
+	  </c:otherwise>
+	</c:choose>
+	    
       <ul id="nav-mobile"  th:if="${session.isLogado}">
         <li><a href="/administrador/administradores">Administradores</a></li>
         <li><a href="/area/areas">Area</a></li>

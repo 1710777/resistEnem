@@ -1,13 +1,12 @@
 package com.br.resistenem.model;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 
 public class ConfiguracaoSimulado {
 	@Id
 	public String id;
 	public String fkIdTipoSimulado;
+	public String fkIdMateria;
 	public String fkIdDificuldade;
 	public Integer quantidade;
 	public Dificuldades dificuldades;
@@ -66,6 +65,14 @@ public class ConfiguracaoSimulado {
 
 	public void setTipoSimulado(TipoSimulado tipoSimulado) {
 		this.tipoSimulado = tipoSimulado;
+	}
+
+	public String getFkIdMateria() {
+		return fkIdMateria;
+	}
+
+	public void setFkIdMateria(String fkIdMateria) {
+		this.fkIdMateria = fkIdMateria;
 	}
 
 }

@@ -1,6 +1,8 @@
 package com.br.resistenem.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.br.resistenem.model.Area;
 import com.br.resistenem.model.Materia;
+import com.br.resistenem.repository.AreaRepository;
 import com.br.resistenem.repository.MateriaRepository;
 
 @Controller
@@ -19,6 +23,8 @@ public class MateriaController {
 
 	@Autowired
 	private MateriaRepository mr;
+	@Autowired
+	private AreaRepository ar;
 	
 	@RequestMapping(value="/materia/insertMateria", method=RequestMethod.GET)
 	public ModelAndView insertMateria(HttpSession session) {
@@ -26,7 +32,9 @@ public class MateriaController {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			mvMateria = new ModelAndView("Administrador/Login");
 		}else {
+			List<Area> area = ar.findByStatus(true);
 			mvMateria = new ModelAndView("/materia/insertMateria");
+			mvMateria.addObject("Areas", area);
 		}
 		return mvMateria;
 
@@ -70,26 +78,28 @@ public class MateriaController {
 		return mvMateria;
 	}
 	
-	@RequestMapping(value="/area/editarMateria/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/materia/editarMateria/{id}", method=RequestMethod.GET)
 	public ModelAndView editarMateria(@PathVariable("id") String id, HttpSession session) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			ModelAndView mvMateria = new ModelAndView("Administrador/Login");
 			return mvMateria;
 		}
-		Materia materia = mr.findAllById(id);
 		ModelAndView mvMateria = new ModelAndView("materia/editMateria");
+		List<Area> area = ar.findByStatus(true);
+		mvMateria.addObject("Areas", area);
+		Materia materia = mr.findAllById(id);
 		mvMateria.addObject("Materia", materia);
 		return mvMateria;
 	}
 	
 	@RequestMapping("/materia/excluirMateria/{id}")
-	public String excluirMateria(@PathVariable("id") String id, HttpSession session) {
+	public String excluirMateria(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		Materia materiaNew = mr.findAllById(id);
-		materiaNew.setStatus(false);
-		mr.save(materiaNew);
+		mr.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Materia excluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/materia/materias";
 	}
 	
@@ -99,7 +109,7 @@ public class MateriaController {
 			return "redirect:/";
 		}
 		Materia materiaNew = mr.findAllById(id);
-		materiaNew.setStatus(true);
+		materiaNew.setStatus("false".equals(materiaNew.getStatus().toString())?true:false);
 		mr.save(materiaNew);
 		return "redirect:/materia/materias";
 	}

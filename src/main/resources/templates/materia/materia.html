@@ -1,0 +1,39 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Lista de Matérias</a>
+	</div>
+	<span th:text="${Header}"></span>
+    <a href="/materia/insertMateria" class="waves-effect waves-darkness  btn black"><i class="material-icons left">add_box</i>Cadastrar Matéria</a>
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Área</th>
+				<th>Matéria</th>
+				<th>Status</th>
+				<th>Ação</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="Materia : ${Materias}">
+				<td><span th:text=${Materia.area.area}></span></td>
+				<td><span th:text=${Materia.materia}></span></td>
+				<td>
+						
+				<span th:switch="${Materia.status}">
+			  		<p th:case="true">ATIVO</p>
+			  		<p th:case="false">DESATIVADO</p>
+				</span>
+				</td>
+				<td>
+				  	<a th:href="${#mvc.url('MC#editarMateria').arg(0, Materia.id).build()}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				  	<a th:href="${#mvc.url('MC#excluirMateria').arg(0, Materia.id).build()}" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+				  	<a th:href="${#mvc.url('MC#publicarMateria').arg(0, Materia.id).build()}" class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">publish</i></a>
+				  	
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<th:block th:include="footer"></th:block>
+	

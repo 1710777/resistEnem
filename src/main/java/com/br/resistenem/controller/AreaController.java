@@ -84,13 +84,13 @@ public class AreaController {
 	}
 	
 	@RequestMapping("/area/excluirArea/{id}")
-	public String excluirArea(@PathVariable("id") String id, HttpSession session) {
+	public String excluirArea(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		Area areaNew = ar.findAllById(id);
-		areaNew.setStatus(false);
-		ar.save(areaNew);
+		ar.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Area excluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/area/areas";
 	}
 	
@@ -100,7 +100,7 @@ public class AreaController {
 			return "redirect:/";
 		}
 		Area areaNew = ar.findAllById(id);
-		areaNew.setStatus(true);
+		areaNew.setStatus("false".equals(areaNew.getStatus().toString())?true:false);
 		ar.save(areaNew);
 		return "redirect:/area/areas";
 	}

@@ -117,13 +117,13 @@ public class QuestaoController {
 	}
 	
 	@RequestMapping("/questao/excluirQuestao/{id}")
-	public String excluirQuestao(@PathVariable("id") String id, HttpSession session) {
+	public String excluirQuestao(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		Questao QuestaoNew = qr.findAllById(id);
-		QuestaoNew.setStatus(false);
-		qr.save(QuestaoNew);
+		qr.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Dificuldade excluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/questao/questoes";
 	}
 	
@@ -133,7 +133,7 @@ public class QuestaoController {
 			return "redirect:/";
 		}
 		Questao QuestaoNew = qr.findAllById(id);
-		QuestaoNew.setStatus(true);
+		QuestaoNew.setStatus("false".equals(QuestaoNew.getStatus().toString())?true:false);
 		qr.save(QuestaoNew);
 		return "redirect:/questao/questoes";
 	}

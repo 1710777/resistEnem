@@ -73,4 +73,21 @@ public class AlternativaController {
 		return "redirect:/questao/insertAlternativa/"+alternativa.getIdQuestao();
 	}
 	
+	@RequestMapping("publicarAlternativa/{id}")
+	public String publicarAlternativa(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
+		Alternativa alternativa = ar.findAllById(id);
+		Alternativa alternativaRespostaCorreta = ar.findAllByRespostaCorretaAndIdQuestao(true,alternativa.getIdQuestao());
+		if (alternativaRespostaCorreta != null && !id.equals(alternativaRespostaCorreta.getId())) {
+			attibutes.addFlashAttribute("menssagem", "Existe outra alterativa com a resposta correta. Desative antes de ativar esta alterantiva!");
+			attibutes.addFlashAttribute("error", true);
+			return "redirect:/questao/insertAlternativa/"+alternativa.getIdQuestao();
+		}
+		alternativa.setRespostaCorreta("false".equals(alternativa.getRespostaCorreta().toString())?true:false);
+		ar.save(alternativa);
+		return "redirect:/questao/insertAlternativa/"+alternativa.getIdQuestao();
+	}
+	
 }

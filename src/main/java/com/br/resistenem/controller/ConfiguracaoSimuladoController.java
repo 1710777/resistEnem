@@ -33,42 +33,42 @@ public class ConfiguracaoSimuladoController {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		if ("".equals(configuracaoSimulado.getFkIdDificuldade()) || "".equals(configuracaoSimulado.getFkIdTipoSimulado()) || "".equals(configuracaoSimulado.getQuantidade())) {
+		if ("".equals(configuracaoSimulado.getDificuldades()) || "".equals(configuracaoSimulado.getTipoSimulado()) || "".equals(configuracaoSimulado.getQuantidade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
-			return "redirect:/tipoSimulado/configuraSimulado/"+configuracaoSimulado.getFkIdTipoSimulado();
+			return "redirect:/tipoSimulado/configuraSimulado/"+configuracaoSimulado.getTipoSimulado().getId();
 		}
-		ConfiguracaoSimulado conf = csr.findByFkIdDificuldadeAndFkIdTipoSimulado(configuracaoSimulado.getFkIdDificuldade(),configuracaoSimulado.getFkIdTipoSimulado());
+		ConfiguracaoSimulado conf = csr.findAllByDificuldadesAndTipoSimulado(configuracaoSimulado.getDificuldades(),configuracaoSimulado.getTipoSimulado());
 		if(conf != null && conf.getId() != null) {
 			attibutes.addFlashAttribute("menssagem", "Ja existe um registro pra esta dificuldade e tipo de simulado!");
 			attibutes.addFlashAttribute("error", true);
-			return "redirect:/tipoSimulado/insertConfigSimulado/"+configuracaoSimulado.getFkIdTipoSimulado();			
+			return "redirect:/tipoSimulado/insertConfigSimulado/"+configuracaoSimulado.getTipoSimulado().getId();			
 		} 
-		TipoSimulado tipo =  tr.findTipoSimuladoById(configuracaoSimulado.getFkIdTipoSimulado());
-		Dificuldades dificuldade = dr.findDificuldadesById(configuracaoSimulado.getFkIdDificuldade());
+		TipoSimulado tipo =  tr.findTipoSimuladoById(configuracaoSimulado.getTipoSimulado().getId());
+		Dificuldades dificuldade = dr.findDificuldadesById(configuracaoSimulado.getDificuldades().getId());
 		configuracaoSimulado.setTipoSimulado(tipo);
 		configuracaoSimulado.setDificuldades(dificuldade);
 		csr.save(configuracaoSimulado);
 		attibutes.addFlashAttribute("menssagem", "Configuração incluida com sucesso!");
 		attibutes.addFlashAttribute("error", false);
-		return "redirect:/tipoSimulado/insertConfigSimulado/"+configuracaoSimulado.getFkIdTipoSimulado();	
+		return "redirect:/tipoSimulado/insertConfigSimulado/"+configuracaoSimulado.getTipoSimulado().getId();	
 	}
 	@RequestMapping(value="/simulado/updateConfigSimulado", method=RequestMethod.POST)
 	public String updateConfigSimulado(ConfiguracaoSimulado configSimulado, RedirectAttributes attibutes, HttpSession session) {
 
-		if ("".equals(configSimulado.getFkIdDificuldade()) || "".equals(configSimulado.getFkIdTipoSimulado()) || "".equals(configSimulado.getQuantidade())) {
+		if ("".equals(configSimulado.getDificuldades()) || "".equals(configSimulado.getTipoSimulado()) || "".equals(configSimulado.getQuantidade())) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
 			return "redirect:/simulado/editarConfigSimulado/"+configSimulado.getId();
 		}
-		TipoSimulado tipo =  tr.findTipoSimuladoById(configSimulado.getFkIdTipoSimulado());
-		Dificuldades dificuldade = dr.findDificuldadesById(configSimulado.getFkIdDificuldade());
+		TipoSimulado tipo =  tr.findTipoSimuladoById(configSimulado.getTipoSimulado().getId());
+		Dificuldades dificuldade = dr.findDificuldadesById(configSimulado.getDificuldades().getId());
 		configSimulado.setTipoSimulado(tipo);
 		configSimulado.setDificuldades(dificuldade);
 		csr.save(configSimulado);
 		attibutes.addFlashAttribute("menssagem", "Configuração atualizada com sucesso!");
 		attibutes.addFlashAttribute("error", false);
-		return "redirect:/tipoSimulado/insertConfigSimulado/"+configSimulado.getFkIdTipoSimulado();
+		return "redirect:/tipoSimulado/insertConfigSimulado/"+configSimulado.getTipoSimulado().getId();
 	}
 	
 	@RequestMapping(value="/simulado/editarConfigSimulado/{id}", method=RequestMethod.GET)
@@ -91,7 +91,7 @@ public class ConfiguracaoSimuladoController {
 		attibutes.addFlashAttribute("menssagem", "Configuração excluida com sucesso!");
 		attibutes.addFlashAttribute("sucesso", true);
 
-		return "redirect:/tipoSimulado/insertConfigSimulado/"+configSimulado.getFkIdTipoSimulado();
+		return "redirect:/tipoSimulado/insertConfigSimulado/"+configSimulado.getTipoSimulado().getId();
 	}
 	
 }

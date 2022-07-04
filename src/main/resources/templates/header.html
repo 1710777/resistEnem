@@ -16,22 +16,20 @@
 <body>
   <nav>
     <div class="nav-wrapper black">
-    
-	<c:choose>
-	  <c:when test="${session.isLogado}">
-	      <a class="brand-logo right white" href="/administrador/home"><img src="/images/resistenem.png" width="250" height="58" border=0 /></a>   
-	  </c:when>
-	  <c:otherwise>
-	      <a class="brand-logo right white"><img src="/images/resistenem.png" width="250" height="58" border=0 /></a>  
-	  </c:otherwise>
-	</c:choose>
+	<span th:switch="${session.isLogado}">
+  		<a class="brand-logo right" href="/administrador/home" th:case="true"><img src="/images/SimulaEnem.jpeg" width="250" height="58" border=0 /></a>   
+        <a class="brand-logo right" th:case="false"><img src="/images/SimulaEnem.jpeg" width="250" height="58" border=0 /></a>
+        <a class="brand-logo right" th:case="null"><img src="/images/SimulaEnem.jpeg" width="250" height="58" border=0 /></a>  
+          
+	</span>
 	    
       <ul id="nav-mobile"  th:if="${session.isLogado}">
         <li><a href="/administrador/administradores">Administradores</a></li>
         <li><a href="/area/areas">Area</a></li>
+        <li><a href="/materia/materias">Matéria</a></li>
+		<li><a href="/tipoSimulado/TipoSimulados">Tipo Simulado</a></li>
         <li><a href="/dificuldade/dificuldades">Dificuldade</a></li>
 		<li><a href="/questao/questoes">Questao</a></li>
-		<li><a href="/tipoSimulado/TipoSimulados">Tipo Simulado</a></li>
 		<li><a href="/administrador/logoff">LogOff</a></li>
 		<li th:if=${session.ADM}><span th:text="'OLÁ, '+ ${session.ADM.nome}"></span></li>
       </ul>

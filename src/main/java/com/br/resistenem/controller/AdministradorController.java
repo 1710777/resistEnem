@@ -21,17 +21,21 @@ public class AdministradorController {
 
 	
 	@RequestMapping(value="/administrador/insertAdministrador", method=RequestMethod.GET)
-	public String insertArea(HttpSession session) {
+	public ModelAndView insertArea(HttpSession session) {
+		ModelAndView mvADM = null;
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
-			return "/administrador/insertAdministrador";		
+			mvADM = new ModelAndView("Administrador/Login");
 		}else {
-			return "redirect:/";
+			mvADM = new ModelAndView("/administrador/insertAdministrador");
 		}
-		
+		return mvADM;
 	}
 	
 	@RequestMapping(value="/administrador/insertAdministrador", method=RequestMethod.POST)
-	public String insertArea(Administrador administrador, RedirectAttributes attibutes) {
+	public String insertArea(Administrador administrador, RedirectAttributes attibutes, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+		}
 		if ("".equals(administrador.getNome()) || "".equals(administrador.getEmail()) || "".equals(administrador.getSenha()) || "".equals(administrador.getUsuario()) ) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -44,7 +48,11 @@ public class AdministradorController {
 	}
 	
 	@RequestMapping(value="/administrador/updateAdministrador", method=RequestMethod.POST)
-	public String updateAdministrador(Administrador administrador, RedirectAttributes attibutes) {
+	public String updateAdministrador(Administrador administrador, RedirectAttributes attibutes, HttpSession session) {
+		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
+			return "redirect:/";
+
+		}
 		if ("".equals(administrador.getNome()) || "".equals(administrador.getEmail()) || "".equals(administrador.getSenha()) || "".equals(administrador.getUsuario()) ) {
 			attibutes.addFlashAttribute("menssagem", "verifique os campos!");
 			attibutes.addFlashAttribute("error", true);
@@ -82,13 +90,13 @@ public class AdministradorController {
 	}
 	
 	@RequestMapping("/administrador/excluirAdministrador/{id}")
-	public String excluirAdministrador(@PathVariable("id") String id, HttpSession session) {
+	public String excluirAdministrador(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		Administrador administradorNew = admr.findAllById(id);
-		administradorNew.setStatus(false);
-		admr.save(administradorNew);
+		admr.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Administrador excluido com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/administrador/administradores";
 	}
 	
@@ -98,7 +106,7 @@ public class AdministradorController {
 			return "redirect:/";
 		}
 		Administrador administradorNew = admr.findAllById(id);
-		administradorNew.setStatus(true);
+		administradorNew.setStatus("false".equals(administradorNew.getStatus().toString())?true:false);
 		admr.save(administradorNew);
 		return "redirect:/administrador/administradores";
 	}

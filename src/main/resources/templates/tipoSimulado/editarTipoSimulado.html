@@ -10,8 +10,8 @@
 			<div class="row">
 				<input placeholder="ID" name="id" type="hidden" th:value=${tipoSimulado.id}>
 		        <div class="input-field col s6">
-		         <textarea id="tipoSimulado" placeholder="Tipo Simulado" name="tipoSimulado" class="materialize-textarea" th:text="${tipoSimulado.tipoSimulado}"></textarea>
-		          <label for="tipoSimulado">Tipo Simulado</label>
+		         <input placeholder="Tipo Simulado" name="tipoSimulado" type="text" th:value="${tipoSimulado.tipoSimulado}">
+		         <label for="tipoSimulado">Tipo Simulado</label>
 		        </div>
 		        <div class="input-field col s6">
 			  	    <p>

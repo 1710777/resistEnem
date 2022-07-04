@@ -84,13 +84,13 @@ public class DificuldadesController {
 	}
 	
 	@RequestMapping("/dificuldade/excluirDificuldades/{id}")
-	public String excluirDificuldades(@PathVariable("id") String id, HttpSession session) {
+	public String excluirDificuldades(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		Dificuldades DificuldadesNew = dr.findAllById(id);
-		DificuldadesNew.setStatus(false);
-		dr.save(DificuldadesNew);
+		dr.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Dificuldade excluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/dificuldade/dificuldades";
 	}
 	
@@ -100,7 +100,7 @@ public class DificuldadesController {
 			return "redirect:/";
 		}
 		Dificuldades DificuldadesNew = dr.findAllById(id);
-		DificuldadesNew.setStatus(true);
+		DificuldadesNew.setStatus("false".equals(DificuldadesNew.getStatus().toString())?true:false);
 		dr.save(DificuldadesNew);
 		return "redirect:/dificuldade/dificuldades";
 	}

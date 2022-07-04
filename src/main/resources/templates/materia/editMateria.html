@@ -1,0 +1,42 @@
+<th:block th:include="header"></th:block>
+<div class="container">
+	<div class="collection">
+	  <a class="collection-item active red">Editar Matéria</a>
+	</div>
+	<div class="row">
+		<h3><a href="/materia/materias" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Materias</a></h3>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<form method="post" action="/materia/updateMateria" class="container" th:each="Materia : ${Materia}">
+			<div class="row">
+				<input placeholder="ID" name="id" type="hidden" th:value=${Materia.id}>
+				<div class="col s6">
+		   			<label for="area">Áreas</label>
+		   			<select name="area" class="browser-default">
+					    <option th:each="area : ${Areas}" th:value="${area.id}" th:text="${area.area}" th:selected="${area.id==Materia.area.id}"></option>
+					</select>		
+				</div>
+		        <div class="input-field col s6">
+		          <input placeholder="Materia" name="materia" type="text" th:value="${Materia.materia}">
+		          <label for="materia">Materia</label>
+		        </div>
+		        <div class="input-field col s6">
+			  	    <p>
+				  		<label>  		
+						      <input class="with-gap blue" name="status" type="radio" value="1" th:checked="${Materia.status} == true"/>
+						      <span>Ativado</span>
+						</label>
+						<label>
+						      <input class="with-gap blue" name="status" type="radio" value="0" th:checked="${Materia.status} == false"/>
+						      <span>Desativado</span>
+						</label>
+					</p>
+		        </div>
+		      </div>
+			  <button class="btn waves-effect waves-light black right" type="submit" name="action">Editar Matéria
+			    <i class="material-icons right">edit</i>
+			  </button>
+			</div>
+		</form>
+	</div>
+</div>
+<th:block th:include="footer"></th:block>

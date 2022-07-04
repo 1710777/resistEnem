@@ -14,9 +14,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.br.resistenem.model.ConfiguracaoSimulado;
 import com.br.resistenem.model.Dificuldades;
+import com.br.resistenem.model.Materia;
 import com.br.resistenem.model.TipoSimulado;
 import com.br.resistenem.repository.ConfiguracaoSimuladoRepository;
 import com.br.resistenem.repository.DificuldadesRepository;
+import com.br.resistenem.repository.MateriaRepository;
 import com.br.resistenem.repository.TipoSimuladoRepository;
 
 @Controller
@@ -28,6 +30,8 @@ public class TipoSimuladoController {
 	private DificuldadesRepository dr;
 	@Autowired
 	private ConfiguracaoSimuladoRepository csr;
+	@Autowired
+	private MateriaRepository mr;
 	
 	@RequestMapping(value="/tipoSimulado/insertTipoSimulado", method=RequestMethod.GET)
 	public ModelAndView insertTipoSimulado(HttpSession session) {
@@ -96,13 +100,13 @@ public class TipoSimuladoController {
 	}
 	
 	@RequestMapping("/tipoSimulado/excluirTipoSimulado/{id}")
-	public String excluirTipoSimulado(@PathVariable("id") String id, HttpSession session) {
+	public String excluirTipoSimulado(@PathVariable("id") String id, HttpSession session, RedirectAttributes attibutes) {
 		if (session.getAttribute("isLogado") == null || "false".equals(session.getAttribute("isLogado").toString())) {
 			return "redirect:/";
 		}
-		TipoSimulado TipoSimuladoNew = tr.findAllById(id);
-		TipoSimuladoNew.setStatus(false);
-		tr.save(TipoSimuladoNew);
+		tr.deleteById(id);
+		attibutes.addFlashAttribute("menssagem", "Tipo Simulado excluida com sucesso!");
+		attibutes.addFlashAttribute("error", false);
 		return "redirect:/tipoSimulado/TipoSimulados";
 	}
 	
@@ -112,7 +116,7 @@ public class TipoSimuladoController {
 			return "redirect:/";
 		}
 		TipoSimulado TipoSimuladoNew = tr.findAllById(id);
-		TipoSimuladoNew.setStatus(true);
+		TipoSimuladoNew.setStatus("false".equals(TipoSimuladoNew.getStatus().toString())?true:false);
 		tr.save(TipoSimuladoNew);
 		return "redirect:/tipoSimulado/TipoSimulados";
 	}
@@ -129,7 +133,9 @@ public class TipoSimuladoController {
 		List<Dificuldades> dificuldades = dr.findByStatus(true);
 		mvConfiguracaoSimulado.addObject("Dificuldades", dificuldades);
 		List<ConfiguracaoSimulado> configSimulado = csr.findAll();
-		
+		List<Materia> materia = mr.findByStatus(true);
+		mvConfiguracaoSimulado.addObject("Materia", materia);
+
 		mvConfiguracaoSimulado.addObject("configSimulado", configSimulado);
 		return mvConfiguracaoSimulado;
 	}

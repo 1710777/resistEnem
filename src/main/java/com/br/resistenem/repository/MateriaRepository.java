@@ -11,4 +11,8 @@ public interface MateriaRepository extends MongoRepository<Materia, String> {
 	Materia findAllById(String id);
 
 	List<Materia> findByStatus(boolean b);
+
+	Iterable<Materia> findByAreaStatus(boolean b);
+
+	Materia findMateriaById(String id);
 }

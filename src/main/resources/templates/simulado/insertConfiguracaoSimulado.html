@@ -8,19 +8,26 @@
 		<th:block th:include="mensagemValidacao"></th:block>
 		<form method="post" action="/simulado/insertConfigSimulado" class="container">
 			<div class="row">
-		      	<div class="input-field col s3">
+		      	<div class="input-field col s12">
 					<label>Tipo Simulado</label><br><br>
 					<input name="tipoSimulado" type="hidden" th:value="${TipoSimulado.id}">
 		   			<span th:text="${TipoSimulado.tipoSimulado}"></span>
 				</div>
-		      	<div class="input-field col s6">
-					<label>Dificuldade</label><br><br>
+		      	<div class="col s4">
+					<label>Materia</label>
+		   			<select name="materia" class="browser-default">
+		   				<option value="0" selected>Selecione a Materia</option>
+					    <option th:each="materia : ${Materia}" th:value="${materia.id}" th:text="${materia.Materia}"></option>
+					</select>		
+				</div>
+		      	<div class="col s4">
+					<label>Dificuldade</label>
 		   			<select name="dificuldades" class="browser-default">
 		   				<option value="0" selected>Selecione a Dificuldade</option>
 					    <option th:each="dificuldade : ${Dificuldades}" th:value="${dificuldade.id}" th:text="${dificuldade.dificuldade}"></option>
 					</select>		
-				</div><br><br>
-		        <div class="input-field col s3">
+				</div>
+		        <div class="input-field col s4">
 		          <input placeholder="Quantidade" name="quantidade" type="text" >
 		          <label for="tipoSimulado">Quantidade</label>
 		        </div>

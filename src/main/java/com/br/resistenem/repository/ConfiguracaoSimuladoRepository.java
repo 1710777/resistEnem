@@ -13,4 +13,7 @@ public interface ConfiguracaoSimuladoRepository extends MongoRepository<Configur
 
 	ConfiguracaoSimulado findAllByDificuldadesAndTipoSimulado(Dificuldades dificuldades,
 			TipoSimulado tipoSimulado);
+
+	ConfiguracaoSimulado findAllByDificuldadesAndTipoSimuladoAndMateria(Dificuldades dificuldades,
+			TipoSimulado tipoSimulado, Materia materia);
 }

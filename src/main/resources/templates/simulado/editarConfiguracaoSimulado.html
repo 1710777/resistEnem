@@ -4,21 +4,25 @@
 	  <a class="collection-item active red">Editar Configuração do Tipo de Simulado</a>
 	</div>
 	<div class="row">
-		<h3><a th:href="${#mvc.url('TSC#insertConfigSimulado').arg(0, Simulado.fkIdTipoSimulado).build()}" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo de Simulados</a></h3>
+		<h3><a th:href="${#mvc.url('TSC#insertConfigSimulado').arg(0, Simulado.tipoSimulado.id).build()}" class="waves-effect waves-light btn black"><i class="material-icons left">dashboard</i>Tipo de Simulados</a></h3>
 		<th:block th:include="mensagemValidacao"></th:block>
 		<form method="post" action="/simulado/updateConfigSimulado" class="container">
 		     <input name="id" type="hidden" th:value="${Simulado.id}">
 		
 			<div class="row">
 		      	<div class="input-field col s4">
-					<input name="fkIdTipoSimulado" type="hidden" th:value="${Simulado.fkIdTipoSimulado}">
+					<input name="tipoSimulado" type="hidden" th:value="${Simulado.tipoSimulado.id}">
 		   			<span th:text="${Simulado.tipoSimulado.tipoSimulado}"></span>
 				</div>
-		      	<div class="input-field col s3">
-					<input name="fkIdDificuldade" type="hidden" th:value="${Simulado.fkIdDificuldade}">
+		      	<div class="input-field col s4">
+					<input name="materia" type="hidden" th:value="${Simulado.materia.id}">
+		   			<span th:text="${Simulado.materia.materia}"></span>
+				</div>
+		      	<div class="input-field col s2">
+					<input name="dificuldades" type="hidden" th:value="${Simulado.dificuldades.id}">
 					<span name="dificuldade"  th:text="${Simulado.dificuldades.dificuldade}"></span>	
 				</div>
-		        <div class="input-field col s5">
+		        <div class="input-field col s2">
 		          <input placeholder="Quantidade" name="quantidade" type="text" th:value="${Simulado.quantidade}">
 		          <label for="quantidade">Quantidade</label>
 		        </div>
